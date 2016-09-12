@@ -1,4 +1,5 @@
-Dogero
+
+![Alt text](http://i.imgur.com/OYoxWc9.png)
 
 ## Building Dogero 
 
