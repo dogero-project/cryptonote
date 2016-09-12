@@ -5,7 +5,7 @@
 #include "gtest/gtest.h"
 #include <tuple>
 
-#include "CryptoNoteCore/TransactionApi.h"
+#include "DogeroCore/TransactionApi.h"
 #include "Logging/ConsoleLogger.h"
 #include "Transfers/TransfersSubscription.h"
 #include "Transfers/TypeHelpers.h"
@@ -14,7 +14,7 @@
 #include "TransactionApiHelpers.h"
 #include "TransfersObserver.h"
 
-using namespace CryptoNote;
+using namespace Dogero;
 
 namespace {
 

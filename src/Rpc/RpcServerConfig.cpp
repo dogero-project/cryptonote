@@ -4,9 +4,9 @@
 
 #include "RpcServerConfig.h"
 #include "Common/CommandLine.h"
-#include "CryptoNoteConfig.h"
+#include "DogeroConfig.h"
 
-namespace CryptoNote {
+namespace Dogero {
 
   namespace {
 

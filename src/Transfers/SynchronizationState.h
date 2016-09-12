@@ -10,7 +10,7 @@
 #include <vector>
 #include <map>
 
-namespace CryptoNote {
+namespace Dogero {
 
 class SynchronizationState : public IStreamSerializable {
 public:
@@ -41,7 +41,7 @@ public:
   virtual void load(std::istream& in) override;
 
   // serialization
-  CryptoNote::ISerializer& serialize(CryptoNote::ISerializer& s, const std::string& name);
+  Dogero::ISerializer& serialize(Dogero::ISerializer& s, const std::string& name);
 
 private:
 

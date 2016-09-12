@@ -6,14 +6,14 @@
 
 #include "Chaingen.h"
 
-#include "CryptoNoteCore/Currency.h"
+#include "DogeroCore/Currency.h"
 #include "TransactionBuilder.h"
 #include <Logging/LoggerGroup.h>
 
 class TestGenerator {
 public:
   TestGenerator(
-    const CryptoNote::Currency& currency, 
+    const Dogero::Currency& currency,
     std::vector<test_event_entry>& eventsRef) :
       generator(currency),
       events(eventsRef) {
@@ -23,17 +23,17 @@ public:
     lastBlock = genesisBlock;
   }
 
-  const CryptoNote::Currency& currency() const { return generator.currency(); }
+  const Dogero::Currency& currency() const { return generator.currency(); }
 
-  void makeNextBlock(const std::list<CryptoNote::Transaction>& txs = std::list<CryptoNote::Transaction>()) {
-    CryptoNote::Block block;
+  void makeNextBlock(const std::list<Dogero::Transaction>& txs = std::list<Dogero::Transaction>()) {
+    Dogero::Block block;
     generator.constructBlock(block, lastBlock, minerAccount, txs);
     events.push_back(block);
     lastBlock = block;
   }
 
-  void makeNextBlock(const CryptoNote::Transaction& tx) {
-    std::list<CryptoNote::Transaction> txs;
+  void makeNextBlock(const Dogero::Transaction& tx) {
+    std::list<Dogero::Transaction> txs;
     txs.push_back(tx);
     makeNextBlock(txs);
   }
@@ -42,19 +42,19 @@ public:
     generateBlocks(currency().minedMoneyUnlockWindow());
   }
 
-  void generateBlocks(size_t count, uint8_t majorVersion = CryptoNote::BLOCK_MAJOR_VERSION_1) {
+  void generateBlocks(size_t count, uint8_t majorVersion = Dogero::BLOCK_MAJOR_VERSION_1) {
     while (count--) {
-      CryptoNote::Block next;
+      Dogero::Block next;
       generator.constructBlockManually(next, lastBlock, minerAccount, test_generator::bf_major_ver, majorVersion);
       lastBlock = next;
       events.push_back(next);
     }
   }
 
-  TransactionBuilder createTxBuilder(const CryptoNote::AccountBase& from, const CryptoNote::AccountBase& to, uint64_t amount, uint64_t fee) {
+  TransactionBuilder createTxBuilder(const Dogero::AccountBase& from, const Dogero::AccountBase& to, uint64_t amount, uint64_t fee) {
 
-    std::vector<CryptoNote::TransactionSourceEntry> sources;
-    std::vector<CryptoNote::TransactionDestinationEntry> destinations;
+    std::vector<Dogero::TransactionSourceEntry> sources;
+    std::vector<Dogero::TransactionDestinationEntry> destinations;
 
     fillTxSourcesAndDestinations(sources, destinations, from, to, amount, fee);
 
@@ -67,16 +67,16 @@ public:
   }
 
   void fillTxSourcesAndDestinations(
-    std::vector<CryptoNote::TransactionSourceEntry>& sources, 
-    std::vector<CryptoNote::TransactionDestinationEntry>& destinations,
-    const CryptoNote::AccountBase& from, const CryptoNote::AccountBase& to, uint64_t amount, uint64_t fee, size_t nmix = 0) {
+    std::vector<Dogero::TransactionSourceEntry>& sources,
+    std::vector<Dogero::TransactionDestinationEntry>& destinations,
+    const Dogero::AccountBase& from, const Dogero::AccountBase& to, uint64_t amount, uint64_t fee, size_t nmix = 0) {
     fill_tx_sources_and_destinations(events, lastBlock, from, to, amount, fee, nmix, sources, destinations);
   }
 
   void constructTxToKey(
-    CryptoNote::Transaction& tx,
-    const CryptoNote::AccountBase& from,
-    const CryptoNote::AccountBase& to,
+    Dogero::Transaction& tx,
+    const Dogero::AccountBase& from,
+    const Dogero::AccountBase& to,
     uint64_t amount,
     uint64_t fee,
     size_t nmix = 0) {
@@ -103,8 +103,8 @@ public:
 
   Logging::LoggerGroup logger;
   test_generator generator;
-  CryptoNote::Block genesisBlock;
-  CryptoNote::Block lastBlock;
-  CryptoNote::AccountBase minerAccount;
+  Dogero::Block genesisBlock;
+  Dogero::Block lastBlock;
+  Dogero::AccountBase minerAccount;
   std::vector<test_event_entry>& events;
 };

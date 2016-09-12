@@ -9,9 +9,9 @@
 #include <string>
 #include <vector>
 
-#include "CryptoNote.h"
+#include "Dogero.h"
 
-namespace CryptoNote {
+namespace Dogero {
 
 namespace TransactionTypes {
   

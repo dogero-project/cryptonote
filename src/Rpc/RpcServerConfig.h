@@ -6,7 +6,7 @@
 
 #include <boost/program_options.hpp>
 
-namespace CryptoNote {
+namespace Dogero {
 
 class RpcServerConfig {
 public:

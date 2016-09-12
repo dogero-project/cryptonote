@@ -4,10 +4,10 @@
 
 #include "InProcessNodeErrors.h"
 
-namespace CryptoNote {
+namespace Dogero {
 namespace error {
 
 InProcessNodeErrorCategory InProcessNodeErrorCategory::INSTANCE;
 
 } //namespace error
-} //namespace CryptoNote
+} //namespace Dogero

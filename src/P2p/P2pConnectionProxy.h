@@ -11,7 +11,7 @@
 #include "P2pContextOwner.h"
 #include "P2pInterfaces.h"
 
-namespace CryptoNote {
+namespace Dogero {
 
 class P2pContext;
 class P2pNode;

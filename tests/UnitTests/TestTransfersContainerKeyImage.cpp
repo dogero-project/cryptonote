@@ -7,15 +7,15 @@
 #include "IWalletLegacy.h"
 
 #include "crypto/crypto.h"
-#include "CryptoNoteCore/Account.h"
-#include "CryptoNoteCore/Currency.h"
-#include "CryptoNoteCore/TransactionApi.h"
+#include "DogeroCore/Account.h"
+#include "DogeroCore/Currency.h"
+#include "DogeroCore/TransactionApi.h"
 #include "Logging/ConsoleLogger.h"
 #include "Transfers/TransfersContainer.h"
 
 #include "TransactionApiHelpers.h"
 
-using namespace CryptoNote;
+using namespace Dogero;
 
 
 namespace {

@@ -7,9 +7,9 @@
 
 using namespace Crypto;
 
-namespace CryptoNote {
+namespace Dogero {
 
-TransfersSubscription::TransfersSubscription(const CryptoNote::Currency& currency, const AccountSubscription& sub)
+TransfersSubscription::TransfersSubscription(const Dogero::Currency& currency, const AccountSubscription& sub)
   : subscription(sub), transfers(currency, sub.transactionSpendableAge) {}
 
 

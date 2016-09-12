@@ -6,7 +6,7 @@
 
 #include <time.h>
 
-namespace CryptoNote
+namespace Dogero
 {
 
 class OnceInInterval {

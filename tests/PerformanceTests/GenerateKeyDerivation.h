@@ -5,7 +5,7 @@
 #pragma once
 
 #include "crypto/crypto.h"
-#include "CryptoNoteCore/CryptoNoteBasic.h"
+#include "DogeroCore/DogeroBasic.h"
 
 #include "SingleTransactionTestBase.h"
 

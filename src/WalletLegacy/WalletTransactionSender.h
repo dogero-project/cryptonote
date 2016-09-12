@@ -4,8 +4,8 @@
 
 #pragma once
 
-#include "CryptoNoteCore/Account.h"
-#include "CryptoNoteCore/Currency.h"
+#include "DogeroCore/Account.h"
+#include "DogeroCore/Currency.h"
 
 #include "INode.h"
 #include "WalletLegacy/WalletSendTransactionContext.h"
@@ -15,7 +15,7 @@
 
 #include "ITransfersContainer.h"
 
-namespace CryptoNote {
+namespace Dogero {
 
 class WalletTransactionSender
 {
@@ -56,4 +56,4 @@ private:
   ITransfersContainer& m_transferDetails;
 };
 
-} /* namespace CryptoNote */
+} /* namespace Dogero */

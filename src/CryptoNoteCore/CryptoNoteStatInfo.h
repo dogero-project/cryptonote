@@ -6,7 +6,7 @@
 
 #include "Serialization/ISerializer.h"
 
-namespace CryptoNote
+namespace Dogero
 {
   struct core_stat_info
   {

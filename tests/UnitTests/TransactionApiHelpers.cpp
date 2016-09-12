@@ -3,9 +3,9 @@
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #include "TransactionApiHelpers.h"
-#include "CryptoNoteCore/TransactionApi.h"
+#include "DogeroCore/TransactionApi.h"
 
-using namespace CryptoNote;
+using namespace Dogero;
 using namespace Crypto;
 
 namespace {
@@ -44,7 +44,7 @@ size_t TestTransactionBuilder::addTestInput(uint64_t amount, const AccountKeys& 
   TransactionTypes::InputKeyInfo info;
   PublicKey targetKey;
 
-  CryptoNote::KeyPair srcTxKeys = CryptoNote::generateKeyPair();
+  Dogero::KeyPair srcTxKeys = Dogero::generateKeyPair();
   derivePublicKey(senderKeys, srcTxKeys.publicKey, 5, targetKey);
 
   TransactionTypes::GlobalOutput gout = { targetKey, 0 };
@@ -68,7 +68,7 @@ size_t TestTransactionBuilder::addTestInput(uint64_t amount, std::vector<uint32_
   TransactionTypes::InputKeyInfo info;
   PublicKey targetKey;
 
-  CryptoNote::KeyPair srcTxKeys = CryptoNote::generateKeyPair();
+  Dogero::KeyPair srcTxKeys = Dogero::generateKeyPair();
   derivePublicKey(senderKeys, srcTxKeys.publicKey, 5, targetKey);
 
   TransactionTypes::GlobalOutput gout = { targetKey, 0 };

@@ -8,7 +8,7 @@
 #include "ISerializer.h"
 #include "SerializationOverloads.h"
 
-namespace CryptoNote {
+namespace Dogero {
 
 class BinaryInputStreamSerializer : public ISerializer {
 public:

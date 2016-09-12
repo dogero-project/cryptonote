@@ -6,7 +6,7 @@
 #include <cassert>
 #include "P2pContext.h"
 
-namespace CryptoNote {
+namespace Dogero {
 
 P2pContextOwner::P2pContextOwner(P2pContext* ctx, ContextList& contextList) : contextList(contextList) {
   contextIterator = contextList.insert(contextList.end(), ContextList::value_type(ctx));

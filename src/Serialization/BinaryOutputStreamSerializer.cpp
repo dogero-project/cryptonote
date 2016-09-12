@@ -10,7 +10,7 @@
 
 using namespace Common;
 
-namespace CryptoNote {
+namespace Dogero {
 
 ISerializer::SerializerType BinaryOutputStreamSerializer::type() const {
   return ISerializer::OUTPUT;

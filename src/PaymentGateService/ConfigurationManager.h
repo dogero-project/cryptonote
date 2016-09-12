@@ -4,7 +4,7 @@
 
 #pragma once
 
-#include "CryptoNoteCore/CoreConfig.h"
+#include "DogeroCore/CoreConfig.h"
 #include "PaymentServiceConfiguration.h"
 #include "P2p/NetNodeConfig.h"
 #include "RpcNodeConfiguration.h"
@@ -18,8 +18,8 @@ public:
 
   bool startInprocess;
   Configuration gateConfiguration;
-  CryptoNote::NetNodeConfig netNodeConfig;
-  CryptoNote::CoreConfig coreConfig;
+  Dogero::NetNodeConfig netNodeConfig;
+  Dogero::CoreConfig coreConfig;
   RpcNodeConfiguration remoteNodeConfig;
 };
 

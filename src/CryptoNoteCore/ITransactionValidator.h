@@ -4,9 +4,9 @@
 
 #pragma once
 
-#include "CryptoNoteCore/CryptoNoteBasic.h"
+#include "DogeroCore/DogeroBasic.h"
 
-namespace CryptoNote {
+namespace Dogero {
 
   struct BlockInfo {
     uint32_t height;
@@ -18,11 +18,11 @@ namespace CryptoNote {
 
     void clear() {
       height = 0;
-      id = CryptoNote::NULL_HASH;
+      id = Dogero::NULL_HASH;
     }
 
     bool empty() const {
-      return id == CryptoNote::NULL_HASH;
+      return id == Dogero::NULL_HASH;
     }
   };
 
@@ -30,9 +30,9 @@ namespace CryptoNote {
   public:
     virtual ~ITransactionValidator() {}
     
-    virtual bool checkTransactionInputs(const CryptoNote::Transaction& tx, BlockInfo& maxUsedBlock) = 0;
-    virtual bool checkTransactionInputs(const CryptoNote::Transaction& tx, BlockInfo& maxUsedBlock, BlockInfo& lastFailed) = 0;
-    virtual bool haveSpentKeyImages(const CryptoNote::Transaction& tx) = 0;
+    virtual bool checkTransactionInputs(const Dogero::Transaction& tx, BlockInfo& maxUsedBlock) = 0;
+    virtual bool checkTransactionInputs(const Dogero::Transaction& tx, BlockInfo& maxUsedBlock, BlockInfo& lastFailed) = 0;
+    virtual bool haveSpentKeyImages(const Dogero::Transaction& tx) = 0;
     virtual bool checkTransactionSize(size_t blobSize) = 0;
   };
 

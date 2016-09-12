@@ -4,10 +4,10 @@
 
 #include "HttpParserErrorCodes.h"
 
-namespace CryptoNote {
+namespace Dogero {
 namespace error {
 
 HttpParserErrorCategory HttpParserErrorCategory::INSTANCE;
 
 } //namespace error
-} //namespace CryptoNote
+} //namespace Dogero

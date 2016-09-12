@@ -7,7 +7,7 @@
 #include <vector>
 #include <boost/variant.hpp>
 
-#include <CryptoNote.h>
+#include <Dogero.h>
 
 #define TX_EXTRA_PADDING_MAX_COUNT          255
 #define TX_EXTRA_NONCE_MAX_COUNT            255
@@ -18,7 +18,7 @@
 
 #define TX_EXTRA_NONCE_PAYMENT_ID           0x00
 
-namespace CryptoNote {
+namespace Dogero {
 
 struct TransactionExtraPadding {
   size_t size;

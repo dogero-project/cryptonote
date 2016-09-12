@@ -8,7 +8,7 @@
 #include <mutex>
 #include <condition_variable>
 
-namespace CryptoNote {
+namespace Dogero {
 
 
 template <typename T>

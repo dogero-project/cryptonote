@@ -7,11 +7,11 @@
 #include <functional>
 
 #include "crypto/crypto.h"
-#include "CryptoNoteCore/CryptoNoteFormatUtils.h"
+#include "DogeroCore/DogeroFormatUtils.h"
 
 #include <System/InterruptedException.h>
 
-namespace CryptoNote {
+namespace Dogero {
 
 Miner::Miner(System::Dispatcher& dispatcher, Logging::ILogger& logger) :
   m_dispatcher(dispatcher),
@@ -141,4 +141,4 @@ bool Miner::setStateBlockFound() {
   }
 }
 
-} //namespace CryptoNote
+} //namespace Dogero

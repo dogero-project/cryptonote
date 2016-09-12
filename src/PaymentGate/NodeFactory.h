@@ -12,13 +12,13 @@ namespace PaymentService {
 
 class NodeFactory {
 public:
-  static CryptoNote::INode* createNode(const std::string& daemonAddress, uint16_t daemonPort);
-  static CryptoNote::INode* createNodeStub();
+  static Dogero::INode* createNode(const std::string& daemonAddress, uint16_t daemonPort);
+  static Dogero::INode* createNodeStub();
 private:
   NodeFactory();
   ~NodeFactory();
 
-  CryptoNote::INode* getNode(const std::string& daemonAddress, uint16_t daemonPort);
+  Dogero::INode* getNode(const std::string& daemonAddress, uint16_t daemonPort);
 
   static NodeFactory factory;
 };

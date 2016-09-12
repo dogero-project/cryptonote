@@ -15,16 +15,16 @@
 #include <boost/multi_index/ordered_index.hpp>
 
 #include "crypto/crypto.h"
-#include "CryptoNoteCore/CryptoNoteBasic.h"
-#include "CryptoNoteCore/CryptoNoteSerialization.h"
-#include "CryptoNoteCore/Currency.h"
+#include "DogeroCore/DogeroBasic.h"
+#include "DogeroCore/DogeroSerialization.h"
+#include "DogeroCore/Currency.h"
 #include "Serialization/ISerializer.h"
 #include "Serialization/SerializationOverloads.h"
 
 #include "ITransaction.h"
 #include "ITransfersContainer.h"
 
-namespace CryptoNote {
+namespace Dogero {
 
 struct TransactionOutputInformationIn;
 
@@ -73,7 +73,7 @@ struct TransactionOutputInformationEx : public TransactionOutputInformationIn {
   SpentOutputDescriptor getSpentOutputDescriptor() const { return SpentOutputDescriptor(*this); }
   const Crypto::Hash& getTransactionHash() const { return transactionHash; }
 
-  void serialize(CryptoNote::ISerializer& s) {
+  void serialize(Dogero::ISerializer& s) {
     s(reinterpret_cast<uint8_t&>(type), "type");
     s(amount, "");
     serializeGlobalOutputIndex(s, globalOutputIndex, "");
@@ -138,7 +138,7 @@ class TransfersContainer : public ITransfersContainer {
 
 public:
 
-  TransfersContainer(const CryptoNote::Currency& currency, size_t transactionSpendableAge);
+  TransfersContainer(const Dogero::Currency& currency, size_t transactionSpendableAge);
 
   bool addTransaction(const TransactionBlockInfo& block, const ITransactionReader& tx, const std::vector<TransactionOutputInformationIn>& transfers);
   bool deleteUnconfirmedTransaction(const Crypto::Hash& transactionHash);
@@ -269,7 +269,7 @@ private:
 
   uint32_t m_currentHeight; // current height is needed to check if a transfer is unlocked
   size_t m_transactionSpendableAge;
-  const CryptoNote::Currency& m_currency;
+  const Dogero::Currency& m_currency;
   mutable std::mutex m_mutex;
 };
 

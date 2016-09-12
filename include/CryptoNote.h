@@ -8,7 +8,7 @@
 #include <boost/variant.hpp>
 #include "CryptoTypes.h"
 
-namespace CryptoNote {
+namespace Dogero {
 
 struct BaseInput {
   uint32_t blockIndex;

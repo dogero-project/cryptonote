@@ -9,9 +9,9 @@
 #include <ostream>
 #include <string>
 #include <system_error>
-#include "CryptoNote.h"
+#include "Dogero.h"
 
-namespace CryptoNote {
+namespace Dogero {
 
 typedef size_t TransactionId;
 typedef size_t TransferId;

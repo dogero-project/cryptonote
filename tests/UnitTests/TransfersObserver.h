@@ -8,7 +8,7 @@
 #include <vector>
 #include "ITransfersSynchronizer.h"
 
-namespace CryptoNote {
+namespace Dogero {
 
 class TransfersObserver : public ITransfersObserver {
 public:

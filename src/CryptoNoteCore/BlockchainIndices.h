@@ -9,9 +9,9 @@
 #include <map>
 
 #include "crypto/hash.h"
-#include "CryptoNoteBasic.h"
+#include "DogeroBasic.h"
 
-namespace CryptoNote {
+namespace Dogero {
 
 class ISerializer;
 

@@ -9,7 +9,7 @@
 #include <System/Event.h>
 #include "IWallet.h"
 #include "INode.h"
-#include "CryptoNoteCore/Currency.h"
+#include "DogeroCore/Currency.h"
 #include "PaymentServiceJsonRpcMessages.h"
 #undef ERROR //TODO: workaround for windows build. fix it
 #include "Logging/LoggerRef.h"
@@ -27,13 +27,13 @@ struct WalletConfiguration {
   std::string walletPassword;
 };
 
-void generateNewWallet(const CryptoNote::Currency &currency, const WalletConfiguration &conf, Logging::ILogger &logger, System::Dispatcher& dispatcher);
+void generateNewWallet(const Dogero::Currency &currency, const WalletConfiguration &conf, Logging::ILogger &logger, System::Dispatcher& dispatcher);
 
 struct TransactionsInBlockInfoFilter;
 
 class WalletService {
 public:
-  WalletService(const CryptoNote::Currency& currency, System::Dispatcher& sys, CryptoNote::INode& node, CryptoNote::IWallet& wallet, const WalletConfiguration& conf, Logging::ILogger& logger);
+  WalletService(const Dogero::Currency& currency, System::Dispatcher& sys, Dogero::INode& node, Dogero::IWallet& wallet, const WalletConfiguration& conf, Logging::ILogger& logger);
   virtual ~WalletService();
 
   void init();
@@ -77,8 +77,8 @@ private:
 
   void replaceWithNewWallet(const Crypto::SecretKey& viewSecretKey);
 
-  std::vector<CryptoNote::TransactionsInBlockInfo> getTransactions(const Crypto::Hash& blockHash, size_t blockCount) const;
-  std::vector<CryptoNote::TransactionsInBlockInfo> getTransactions(uint32_t firstBlockIndex, size_t blockCount) const;
+  std::vector<Dogero::TransactionsInBlockInfo> getTransactions(const Crypto::Hash& blockHash, size_t blockCount) const;
+  std::vector<Dogero::TransactionsInBlockInfo> getTransactions(uint32_t firstBlockIndex, size_t blockCount) const;
 
   std::vector<TransactionHashesInBlockRpcInfo> getRpcTransactionHashes(const Crypto::Hash& blockHash, size_t blockCount, const TransactionsInBlockInfoFilter& filter) const;
   std::vector<TransactionHashesInBlockRpcInfo> getRpcTransactionHashes(uint32_t firstBlockIndex, size_t blockCount, const TransactionsInBlockInfoFilter& filter) const;
@@ -86,9 +86,9 @@ private:
   std::vector<TransactionsInBlockRpcInfo> getRpcTransactions(const Crypto::Hash& blockHash, size_t blockCount, const TransactionsInBlockInfoFilter& filter) const;
   std::vector<TransactionsInBlockRpcInfo> getRpcTransactions(uint32_t firstBlockIndex, size_t blockCount, const TransactionsInBlockInfoFilter& filter) const;
 
-  const CryptoNote::Currency& currency;
-  CryptoNote::IWallet& wallet;
-  CryptoNote::INode& node;
+  const Dogero::Currency& currency;
+  Dogero::IWallet& wallet;
+  Dogero::INode& node;
   const WalletConfiguration& config;
   bool inited;
   Logging::LoggerRef logger;

@@ -7,7 +7,7 @@
 
 using namespace Logging;
 
-namespace CryptoNote {
+namespace Dogero {
 //---------------------------------------------------------------------------
 Checkpoints::Checkpoints(Logging::ILogger &log) : logger(log, "checkpoints") {}
 //---------------------------------------------------------------------------

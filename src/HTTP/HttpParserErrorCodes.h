@@ -7,7 +7,7 @@
 #include <string>
 #include <system_error>
 
-namespace CryptoNote {
+namespace Dogero {
 namespace error {
 
 enum HttpParserErrorCodes {
@@ -46,8 +46,8 @@ private:
 };
 
 } //namespace error
-} //namespace CryptoNote
+} //namespace Dogero
 
-inline std::error_code make_error_code(CryptoNote::error::HttpParserErrorCodes e) {
-  return std::error_code(static_cast<int>(e), CryptoNote::error::HttpParserErrorCategory::INSTANCE);
+inline std::error_code make_error_code(Dogero::error::HttpParserErrorCodes e) {
+  return std::error_code(static_cast<int>(e), Dogero::error::HttpParserErrorCategory::INSTANCE);
 }

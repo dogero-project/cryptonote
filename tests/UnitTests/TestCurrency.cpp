@@ -5,13 +5,13 @@
 #include "gtest/gtest.h"
 
 #include "crypto/crypto.h"
-#include "CryptoNoteCore/Currency.h"
-#include "CryptoNoteCore/TransactionApi.h"
+#include "DogeroCore/Currency.h"
+#include "DogeroCore/TransactionApi.h"
 #include "Logging/ConsoleLogger.h"
 
 #include "TransactionApiHelpers.h"
 
-using namespace CryptoNote;
+using namespace Dogero;
 
 namespace {
 const size_t TEST_FUSION_TX_MAX_SIZE = 6000;

@@ -7,7 +7,7 @@
 #include <string>
 #include <system_error>
 
-namespace CryptoNote {
+namespace Dogero {
 namespace error {
 
 // custom error conditions enum type:
@@ -55,6 +55,6 @@ private:
 }
 }
  
-inline std::error_code make_error_code(CryptoNote::error::NodeErrorCodes e) {
-  return std::error_code(static_cast<int>(e), CryptoNote::error::NodeErrorCategory::INSTANCE);
+inline std::error_code make_error_code(Dogero::error::NodeErrorCodes e) {
+  return std::error_code(static_cast<int>(e), Dogero::error::NodeErrorCategory::INSTANCE);
 }

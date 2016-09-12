@@ -6,7 +6,7 @@
 
 #include "Common/StringTools.h"
 #include "crypto/crypto.h"
-#include "CryptoNoteCore/CryptoNoteBasic.h"
+#include "DogeroCore/DogeroBasic.h"
 
 class test_cn_slow_hash {
 public:

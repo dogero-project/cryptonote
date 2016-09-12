@@ -7,7 +7,7 @@
 #include <cstdint>
 #include <utility>
 
-namespace CryptoNote {
+namespace Dogero {
 
 class IFusionManager {
 public:

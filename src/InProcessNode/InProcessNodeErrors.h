@@ -7,7 +7,7 @@
 #include <string>
 #include <system_error>
 
-namespace CryptoNote {
+namespace Dogero {
 namespace error {
 
 enum InProcessNodeErrorCodes {
@@ -49,8 +49,8 @@ private:
 };
 
 } //namespace error
-} //namespace CryptoNote
+} //namespace Dogero
 
-inline std::error_code make_error_code(CryptoNote::error::InProcessNodeErrorCodes e) {
-  return std::error_code(static_cast<int>(e), CryptoNote::error::InProcessNodeErrorCategory::INSTANCE);
+inline std::error_code make_error_code(Dogero::error::InProcessNodeErrorCodes e) {
+  return std::error_code(static_cast<int>(e), Dogero::error::InProcessNodeErrorCategory::INSTANCE);
 }

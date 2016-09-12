@@ -4,10 +4,10 @@
 
 #pragma once
 
-#include "CryptoNoteCore/CryptoNoteBasic.h"
+#include "DogeroCore/DogeroBasic.h"
 #include "crypto/crypto.h"
 
-namespace CryptoNote {
+namespace Dogero {
 
   class ISerializer;
 

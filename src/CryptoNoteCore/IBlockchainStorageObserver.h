@@ -4,7 +4,7 @@
 
 #pragma once
 
-namespace CryptoNote {
+namespace Dogero {
   class IBlockchainStorageObserver {
   public:
     virtual ~IBlockchainStorageObserver() {

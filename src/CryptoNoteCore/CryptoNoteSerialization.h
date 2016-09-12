@@ -4,25 +4,25 @@
 
 #pragma once
 
-#include "CryptoNoteBasic.h"
+#include "DogeroBasic.h"
 #include "crypto/chacha8.h"
 #include "Serialization/ISerializer.h"
 #include "crypto/crypto.h"
 
 namespace Crypto {
 
-bool serialize(PublicKey& pubKey, Common::StringView name, CryptoNote::ISerializer& serializer);
-bool serialize(SecretKey& secKey, Common::StringView name, CryptoNote::ISerializer& serializer);
-bool serialize(Hash& h, Common::StringView name, CryptoNote::ISerializer& serializer);
-bool serialize(chacha8_iv& chacha, Common::StringView name, CryptoNote::ISerializer& serializer);
-bool serialize(KeyImage& keyImage, Common::StringView name, CryptoNote::ISerializer& serializer);
-bool serialize(Signature& sig, Common::StringView name, CryptoNote::ISerializer& serializer);
-bool serialize(EllipticCurveScalar& ecScalar, Common::StringView name, CryptoNote::ISerializer& serializer);
-bool serialize(EllipticCurvePoint& ecPoint, Common::StringView name, CryptoNote::ISerializer& serializer);
+bool serialize(PublicKey& pubKey, Common::StringView name, Dogero::ISerializer& serializer);
+bool serialize(SecretKey& secKey, Common::StringView name, Dogero::ISerializer& serializer);
+bool serialize(Hash& h, Common::StringView name, Dogero::ISerializer& serializer);
+bool serialize(chacha8_iv& chacha, Common::StringView name, Dogero::ISerializer& serializer);
+bool serialize(KeyImage& keyImage, Common::StringView name, Dogero::ISerializer& serializer);
+bool serialize(Signature& sig, Common::StringView name, Dogero::ISerializer& serializer);
+bool serialize(EllipticCurveScalar& ecScalar, Common::StringView name, Dogero::ISerializer& serializer);
+bool serialize(EllipticCurvePoint& ecPoint, Common::StringView name, Dogero::ISerializer& serializer);
 
 }
 
-namespace CryptoNote {
+namespace Dogero {
 
 struct AccountKeys;
 

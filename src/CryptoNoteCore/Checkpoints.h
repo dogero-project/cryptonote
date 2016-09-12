@@ -4,10 +4,10 @@
 
 #pragma once
 #include <map>
-#include "CryptoNoteBasicImpl.h"
+#include "DogeroBasicImpl.h"
 #include <Logging/LoggerRef.h>
 
-namespace CryptoNote
+namespace Dogero
 {
   class Checkpoints
   {

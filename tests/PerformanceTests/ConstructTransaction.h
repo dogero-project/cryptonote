@@ -4,9 +4,9 @@
 
 #pragma once
 
-#include "CryptoNoteCore/Account.h"
-#include "CryptoNoteCore/CryptoNoteBasic.h"
-#include "CryptoNoteCore/CryptoNoteFormatUtils.h"
+#include "DogeroCore/Account.h"
+#include "DogeroCore/DogeroBasic.h"
+#include "DogeroCore/DogeroFormatUtils.h"
 
 #include "MultiTransactionTestBase.h"
 
@@ -25,7 +25,7 @@ public:
 
   bool init()
   {
-    using namespace CryptoNote;
+    using namespace Dogero;
 
     if (!base_class::init())
       return false;
@@ -42,11 +42,11 @@ public:
 
   bool test()
   {
-    return CryptoNote::constructTransaction(this->m_miners[this->real_source_idx].getAccountKeys(), this->m_sources, m_destinations, std::vector<uint8_t>(), m_tx, 0, this->m_logger);
+    return Dogero::constructTransaction(this->m_miners[this->real_source_idx].getAccountKeys(), this->m_sources, m_destinations, std::vector<uint8_t>(), m_tx, 0, this->m_logger);
   }
 
 private:
-  CryptoNote::AccountBase m_alice;
-  std::vector<CryptoNote::TransactionDestinationEntry> m_destinations;
-  CryptoNote::Transaction m_tx;
+  Dogero::AccountBase m_alice;
+  std::vector<Dogero::TransactionDestinationEntry> m_destinations;
+  Dogero::Transaction m_tx;
 };

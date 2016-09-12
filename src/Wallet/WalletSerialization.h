@@ -13,7 +13,7 @@
 
 #include "crypto/chacha8.h"
 
-namespace CryptoNote {
+namespace Dogero {
 
 struct CryptoContext {
   Crypto::chacha8_key key;
@@ -83,8 +83,8 @@ private:
   void loadTransactions(Common::IInputStream& source, CryptoContext& cryptoContext);
   void loadTransfers(Common::IInputStream& source, CryptoContext& cryptoContext, uint32_t version);
 
-  void loadWalletV1Keys(CryptoNote::BinaryInputStreamSerializer& serializer);
-  void loadWalletV1Details(CryptoNote::BinaryInputStreamSerializer& serializer);
+  void loadWalletV1Keys(Dogero::BinaryInputStreamSerializer& serializer);
+  void loadWalletV1Details(Dogero::BinaryInputStreamSerializer& serializer);
   void addWalletV1Details(const std::vector<WalletLegacyTransaction>& txs, const std::vector<WalletLegacyTransfer>& trs);
   void initTransactionPool();
   void resetCachedBalance();
@@ -105,4 +105,4 @@ private:
   UncommitedTransactions& uncommitedTransactions;
 };
 
-} //namespace CryptoNote
+} //namespace Dogero

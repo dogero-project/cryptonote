@@ -11,7 +11,7 @@
 #include "Serialization/BinarySerializationTools.h"
 
 using namespace Common;
-using namespace CryptoNote;
+using namespace Dogero;
 
 TEST(BinarySerializer, uint16) {
 
@@ -49,8 +49,8 @@ TEST(BinarySerializer, uint16) {
 //#include <iostream>
 //#include <vector>
 //#include <boost/foreach.hpp>
-//#include "CryptoNoteCore/CryptoNoteBasic.h"
-//#include "CryptoNoteCore/CryptoNoteBasicImpl.h"
+//#include "DogeroCore/DogeroBasic.h"
+//#include "DogeroCore/DogeroBasicImpl.h"
 //#include "Serialization/serialization.h"
 //#include "Serialization/binary_archive.h"
 //#include "Serialization/json_archive.h"
@@ -312,7 +312,7 @@ TEST(BinarySerializer, uint16) {
 //
 //TEST(Serialization, serializes_transacion_signatures_correctly)
 //{
-//  using namespace CryptoNote;
+//  using namespace Dogero;
 //
 //  Transaction tx;
 //  Transaction tx1;

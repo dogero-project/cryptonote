@@ -6,7 +6,7 @@
 
 #include "NodeRpcProxy/NodeRpcProxy.h"
 #include "Wallet/WalletGreen.h"
-#include "CryptoNoteCore/Currency.h"
+#include "DogeroCore/Currency.h"
 
 #include <stdlib.h>
 #include <future>
@@ -21,8 +21,8 @@ WalletFactory::WalletFactory() {
 WalletFactory::~WalletFactory() {
 }
 
-CryptoNote::IWallet* WalletFactory::createWallet(const CryptoNote::Currency& currency, CryptoNote::INode& node, System::Dispatcher& dispatcher) {
-  CryptoNote::IWallet* wallet = new CryptoNote::WalletGreen(dispatcher, currency, node);
+Dogero::IWallet* WalletFactory::createWallet(const Dogero::Currency& currency, Dogero::INode& node, System::Dispatcher& dispatcher) {
+  Dogero::IWallet* wallet = new Dogero::WalletGreen(dispatcher, currency, node);
   return wallet;
 }
 

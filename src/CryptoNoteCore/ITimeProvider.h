@@ -6,7 +6,7 @@
 
 #include <time.h>
 
-namespace CryptoNote {
+namespace Dogero {
 
   struct ITimeProvider {
     virtual time_t now() = 0;

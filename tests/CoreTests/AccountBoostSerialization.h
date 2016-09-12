@@ -4,16 +4,16 @@
 
 #pragma once
 
-#include "CryptoNoteCore/Account.h"
-#include "CryptoNoteBoostSerialization.h"
+#include "DogeroCore/Account.h"
+#include "DogeroBoostSerialization.h"
 
-//namespace CryptoNote {
+//namespace Dogero {
 namespace boost
 {
   namespace serialization
   {
     template <class Archive>
-    inline void serialize(Archive &a, CryptoNote::AccountKeys &x, const boost::serialization::version_type ver)
+    inline void serialize(Archive &a, Dogero::AccountKeys &x, const boost::serialization::version_type ver)
     {
       a & x.address;
       a & x.spendSecretKey;
@@ -21,7 +21,7 @@ namespace boost
     }
 
     template <class Archive>
-    inline void serialize(Archive &a, CryptoNote::AccountPublicAddress &x, const boost::serialization::version_type ver)
+    inline void serialize(Archive &a, Dogero::AccountPublicAddress &x, const boost::serialization::version_type ver)
     {
       a & x.spendPublicKey;
       a & x.viewPublicKey;

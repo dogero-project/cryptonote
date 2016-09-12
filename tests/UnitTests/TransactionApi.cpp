@@ -7,13 +7,13 @@
 #include <numeric>
 #include <random>
 
-#include "CryptoNoteCore/TransactionApi.h"
-#include "CryptoNoteCore/CryptoNoteFormatUtils.h" // TODO: delete
-#include "CryptoNoteCore/Account.h"
+#include "DogeroCore/TransactionApi.h"
+#include "DogeroCore/DogeroFormatUtils.h" // TODO: delete
+#include "DogeroCore/Account.h"
 #include "crypto/crypto.h"
 #include "TransactionApiHelpers.h"
 
-using namespace CryptoNote;
+using namespace Dogero;
 
 namespace {
  
@@ -64,7 +64,7 @@ namespace {
     TransactionTypes::InputKeyInfo createInputInfo(uint64_t amount) {
       TransactionTypes::InputKeyInfo info;
 
-      CryptoNote::KeyPair srcTxKeys = CryptoNote::generateKeyPair();
+      Dogero::KeyPair srcTxKeys = Dogero::generateKeyPair();
 
       PublicKey targetKey;
 

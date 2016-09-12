@@ -2,10 +2,10 @@
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#include "CryptoNoteBasicImpl.h"
-#include "CryptoNoteFormatUtils.h"
-#include "CryptoNoteTools.h"
-#include "CryptoNoteSerialization.h"
+#include "DogeroBasicImpl.h"
+#include "DogeroFormatUtils.h"
+#include "DogeroTools.h"
+#include "DogeroSerialization.h"
 
 #include "Common/Base58.h"
 #include "crypto/hash.h"
@@ -14,10 +14,10 @@
 using namespace Crypto;
 using namespace Common;
 
-namespace CryptoNote {
+namespace Dogero {
 
   /************************************************************************/
-  /* CryptoNote helper functions                                          */
+  /* Dogero helper functions                                          */
   /************************************************************************/
   //-----------------------------------------------------------------------------------------------
   uint64_t getPenalizedAmount(uint64_t amount, size_t medianSize, size_t currentBlockSize) {
@@ -78,12 +78,12 @@ namespace CryptoNote {
       check_key(adr.viewPublicKey);
   }
   //-----------------------------------------------------------------------
-  bool operator ==(const CryptoNote::Transaction& a, const CryptoNote::Transaction& b) {
+  bool operator ==(const Dogero::Transaction& a, const Dogero::Transaction& b) {
     return getObjectHash(a) == getObjectHash(b);
   }
   //-----------------------------------------------------------------------
-  bool operator ==(const CryptoNote::Block& a, const CryptoNote::Block& b) {
-    return CryptoNote::get_block_hash(a) == CryptoNote::get_block_hash(b);
+  bool operator ==(const Dogero::Block& a, const Dogero::Block& b) {
+    return Dogero::get_block_hash(a) == Dogero::get_block_hash(b);
   }
 }
 

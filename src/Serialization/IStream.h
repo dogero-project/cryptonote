@@ -7,7 +7,7 @@
 #include <cstdint>
 #include <memory>
 
-namespace CryptoNote {
+namespace Dogero {
 
 class IInputStream {
 public:

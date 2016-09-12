@@ -6,10 +6,10 @@
 
 #include <string>
 
-#include "CryptoNoteCore/Currency.h"
+#include "DogeroCore/Currency.h"
 
-namespace CryptoNote {
+namespace Dogero {
 
-bool validateAddress(const std::string& address, const CryptoNote::Currency& currency);
+bool validateAddress(const std::string& address, const Dogero::Currency& currency);
 
 }

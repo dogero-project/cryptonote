@@ -8,13 +8,13 @@
 #include <cstdint>
 #include <cstddef>
 
-namespace CryptoNote {
+namespace Dogero {
 
-class ICryptoNoteProtocolObserver {
+class IDogeroProtocolObserver {
 public:
   virtual void peerCountUpdated(size_t count) {}
   virtual void lastKnownBlockHeightUpdated(uint32_t height) {}
   virtual void blockchainSynchronized(uint32_t topHeight) {}
 };
 
-} //namespace CryptoNote
+} //namespace Dogero

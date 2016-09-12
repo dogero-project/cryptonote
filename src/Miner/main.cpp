@@ -14,7 +14,7 @@
 
 int main(int argc, char** argv) {
   try {
-    CryptoNote::MiningConfig config;
+    Dogero::MiningConfig config;
     config.parse(argc, argv);
 
     if (config.help) {

@@ -7,9 +7,9 @@
 #include <limits>
 #include <string>
 #include <vector>
-#include "CryptoNote.h"
+#include "Dogero.h"
 
-namespace CryptoNote {
+namespace Dogero {
 
 const size_t WALLET_INVALID_TRANSACTION_ID = std::numeric_limits<size_t>::max();
 const size_t WALLET_INVALID_TRANSFER_ID = std::numeric_limits<size_t>::max();

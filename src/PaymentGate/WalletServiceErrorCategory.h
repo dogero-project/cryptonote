@@ -7,7 +7,7 @@
 #include <string>
 #include <system_error>
 
-namespace CryptoNote {
+namespace Dogero {
 namespace error {
 
 enum class WalletServiceErrorCode {
@@ -48,15 +48,15 @@ private:
 };
 
 } //namespace error
-} //namespace CryptoNote
+} //namespace Dogero
 
-inline std::error_code make_error_code(CryptoNote::error::WalletServiceErrorCode e) {
-  return std::error_code(static_cast<int>(e), CryptoNote::error::WalletServiceErrorCategory::INSTANCE);
+inline std::error_code make_error_code(Dogero::error::WalletServiceErrorCode e) {
+  return std::error_code(static_cast<int>(e), Dogero::error::WalletServiceErrorCategory::INSTANCE);
 }
 
 namespace std {
 
 template <>
-struct is_error_code_enum<CryptoNote::error::WalletServiceErrorCode>: public true_type {};
+struct is_error_code_enum<Dogero::error::WalletServiceErrorCode>: public true_type {};
 
 }

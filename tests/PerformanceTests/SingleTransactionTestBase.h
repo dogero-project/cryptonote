@@ -4,9 +4,9 @@
 
 #pragma once
 
-#include "CryptoNoteCore/Account.h"
-#include "CryptoNoteCore/CryptoNoteBasic.h"
-#include "CryptoNoteCore/CryptoNoteFormatUtils.h"
+#include "DogeroCore/Account.h"
+#include "DogeroCore/DogeroBasic.h"
+#include "DogeroCore/DogeroFormatUtils.h"
 
 #include <Logging/LoggerGroup.h>
 
@@ -15,7 +15,7 @@ class single_tx_test_base
 public:
   bool init()
   {
-    using namespace CryptoNote;
+    using namespace Dogero;
 
     Currency currency = CurrencyBuilder(m_nullLog).currency();
     m_bob.generate();
@@ -30,7 +30,7 @@ public:
 protected:
 
   Logging::LoggerGroup m_nullLog;
-  CryptoNote::AccountBase m_bob;
-  CryptoNote::Transaction m_tx;
+  Dogero::AccountBase m_bob;
+  Dogero::Transaction m_tx;
   Crypto::PublicKey m_tx_pub_key;
 };

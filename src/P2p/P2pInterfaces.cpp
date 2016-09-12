@@ -4,7 +4,7 @@
 
 #include "P2pInterfaces.h"
 
-namespace CryptoNote {
+namespace Dogero {
 
 IP2pConnection::~IP2pConnection() {
 }

@@ -12,10 +12,10 @@
 #include <time.h>
 #include <boost/functional/hash.hpp>
 
-#include "CryptoNoteCore/CryptoNoteBasic.h"
+#include "DogeroCore/DogeroBasic.h"
 #include "crypto/crypto.h"
 
-namespace CryptoNote {
+namespace Dogero {
 class ISerializer;
 
 typedef std::pair<Crypto::PublicKey, size_t> TransactionOutputId;
@@ -24,15 +24,15 @@ typedef std::pair<Crypto::PublicKey, size_t> TransactionOutputId;
 namespace std {
 
 template<> 
-struct hash<CryptoNote::TransactionOutputId> {
-  size_t operator()(const CryptoNote::TransactionOutputId &_v) const {    
+struct hash<Dogero::TransactionOutputId> {
+  size_t operator()(const Dogero::TransactionOutputId &_v) const {
     return hash<Crypto::PublicKey>()(_v.first) ^ _v.second;
   } 
 }; 
 
 }
 
-namespace CryptoNote {
+namespace Dogero {
 
 
 struct UnconfirmedTransferDetails {
@@ -40,7 +40,7 @@ struct UnconfirmedTransferDetails {
   UnconfirmedTransferDetails() :
     amount(0), sentTime(0), transactionId(WALLET_LEGACY_INVALID_TRANSACTION_ID) {}
 
-  CryptoNote::Transaction tx;
+  Dogero::Transaction tx;
   uint64_t amount;
   uint64_t outsAmount;
   time_t sentTime;
@@ -54,11 +54,11 @@ public:
 
   explicit WalletUnconfirmedTransactions(uint64_t uncofirmedTransactionsLiveTime);
 
-  bool serialize(CryptoNote::ISerializer& s);
+  bool serialize(Dogero::ISerializer& s);
 
   bool findTransactionId(const Crypto::Hash& hash, TransactionId& id);
   void erase(const Crypto::Hash& hash);
-  void add(const CryptoNote::Transaction& tx, TransactionId transactionId, 
+  void add(const Dogero::Transaction& tx, TransactionId transactionId,
     uint64_t amount, const std::list<TransactionOutputInformation>& usedOutputs);
   void updateTransactionId(const Crypto::Hash& hash, TransactionId id);
 
@@ -82,4 +82,4 @@ private:
   uint64_t m_uncofirmedTransactionsLiveTime;
 };
 
-} // namespace CryptoNote
+} // namespace Dogero

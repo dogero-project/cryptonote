@@ -8,8 +8,8 @@
 
 #include "CommonTypes.h"
 #include "Common/BlockingQueue.h"
-#include "CryptoNoteCore/CryptoNoteFormatUtils.h"
-#include "CryptoNoteCore/TransactionApi.h"
+#include "DogeroCore/DogeroFormatUtils.h"
+#include "DogeroCore/TransactionApi.h"
 
 #include "IWallet.h"
 #include "INode.h"
@@ -19,7 +19,7 @@ using namespace Crypto;
 
 namespace {
 
-using namespace CryptoNote;
+using namespace Dogero;
 
 void checkOutputKey(
   const KeyDerivation& derivation,
@@ -79,7 +79,7 @@ void findMyOutputs(
   }
 }
 
-std::vector<Crypto::Hash> getBlockHashes(const CryptoNote::CompleteBlock* blocks, size_t count) {
+std::vector<Crypto::Hash> getBlockHashes(const Dogero::CompleteBlock* blocks, size_t count) {
   std::vector<Crypto::Hash> result;
   result.reserve(count);
 
@@ -92,9 +92,9 @@ std::vector<Crypto::Hash> getBlockHashes(const CryptoNote::CompleteBlock* blocks
 
 }
 
-namespace CryptoNote {
+namespace Dogero {
 
-TransfersConsumer::TransfersConsumer(const CryptoNote::Currency& currency, INode& node, const SecretKey& viewSecret) :
+TransfersConsumer::TransfersConsumer(const Dogero::Currency& currency, INode& node, const SecretKey& viewSecret) :
   m_node(node), m_viewSecret(viewSecret), m_currency(currency) {
   updateSyncStart();
 }
@@ -386,8 +386,8 @@ std::error_code createTransfers(
       KeyOutput out;
       tx.getOutput(idx, out, amount);
 
-      CryptoNote::KeyPair in_ephemeral;
-      CryptoNote::generate_key_image_helper(
+      Dogero::KeyPair in_ephemeral;
+      Dogero::generate_key_image_helper(
         account,
         txPubKey,
         idx,

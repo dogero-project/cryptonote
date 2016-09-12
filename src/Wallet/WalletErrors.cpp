@@ -4,7 +4,7 @@
 
 #include "WalletErrors.h"
 
-namespace CryptoNote {
+namespace Dogero {
 namespace error {
 
 WalletErrorCategory WalletErrorCategory::INSTANCE;

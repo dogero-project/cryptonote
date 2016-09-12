@@ -12,7 +12,7 @@
 
 #include <boost/variant.hpp>
 
-namespace CryptoNote {
+namespace Dogero {
 
 enum class TransactionRemoveReason : uint8_t 
 { 

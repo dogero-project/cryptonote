@@ -6,8 +6,8 @@
 
 #include <boost/utility/value_init.hpp>
 
-#include "CryptoNoteBasic.h"
-#include "CryptoNoteSerialization.h"
+#include "DogeroBasic.h"
+#include "DogeroSerialization.h"
 
 #include "Serialization/BinaryOutputStreamSerializer.h"
 #include "Serialization/BinaryInputStreamSerializer.h"
@@ -16,7 +16,7 @@ namespace Logging {
 class ILogger;
 }
 
-namespace CryptoNote {
+namespace Dogero {
 
 bool parseAndValidateTransactionFromBinaryArray(const BinaryArray& transactionBinaryArray, Transaction& transaction, Crypto::Hash& transactionHash, Crypto::Hash& transactionPrefixHash);
 

@@ -13,7 +13,7 @@
 
 using namespace System;
 
-namespace CryptoNote {
+namespace Dogero {
 
 P2pContext::Message::Message(P2pMessage&& msg, Type messageType, uint32_t returnCode) :
   messageType(messageType), returnCode(returnCode) {

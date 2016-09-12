@@ -6,7 +6,7 @@
 
 #include "Common/ObserverManager.h"
 
-namespace CryptoNote {
+namespace Dogero {
 
 template <typename Observer, typename Base>
 class IObservableImpl : public Base {

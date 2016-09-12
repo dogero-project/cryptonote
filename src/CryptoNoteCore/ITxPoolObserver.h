@@ -4,7 +4,7 @@
 
 #pragma once
 
-namespace CryptoNote {
+namespace Dogero {
 class ITxPoolObserver {
 public:
   virtual ~ITxPoolObserver() {

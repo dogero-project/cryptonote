@@ -6,28 +6,28 @@
 
 #include <sstream>
 #include <unordered_set>
-#include "../CryptoNoteConfig.h"
+#include "../DogeroConfig.h"
 #include "../Common/CommandLine.h"
 #include "../Common/Util.h"
 #include "../Common/StringTools.h"
 #include "../crypto/crypto.h"
-#include "../CryptoNoteProtocol/CryptoNoteProtocolDefinitions.h"
+#include "../DogeroProtocol/DogeroProtocolDefinitions.h"
 #include "../Logging/LoggerRef.h"
 #include "../Rpc/CoreRpcServerCommandsDefinitions.h"
-#include "CryptoNoteFormatUtils.h"
-#include "CryptoNoteTools.h"
-#include "CryptoNoteStatInfo.h"
+#include "DogeroFormatUtils.h"
+#include "DogeroTools.h"
+#include "DogeroStatInfo.h"
 #include "Miner.h"
 #include "TransactionExtra.h"
 #include "IBlock.h"
 #undef ERROR
 
 using namespace Logging;
-#include "CryptoNoteCore/CoreConfig.h"
+#include "DogeroCore/CoreConfig.h"
 
 using namespace  Common;
 
-namespace CryptoNote {
+namespace Dogero {
 
 class BlockWithTransactions : public IBlock {
 public:
@@ -183,7 +183,7 @@ size_t core::addChain(const std::vector<const IBlock*>& chain) {
   return blocksCounter;
 }
 
-bool core::handle_incoming_tx(const BinaryArray& tx_blob, tx_verification_context& tvc, bool keeped_by_block) { //Deprecated. Should be removed with CryptoNoteProtocolHandler.
+bool core::handle_incoming_tx(const BinaryArray& tx_blob, tx_verification_context& tvc, bool keeped_by_block) { //Deprecated. Should be removed with DogeroProtocolHandler.
   tvc = boost::value_initialized<tx_verification_context>();
   //want to process all transactions sequentially
 
@@ -569,7 +569,7 @@ std::vector<Crypto::Hash> core::buildSparseChain(const Crypto::Hash& startBlockI
   return m_blockchain.buildSparseChain(startBlockId);
 }
 
-bool core::handle_get_objects(NOTIFY_REQUEST_GET_OBJECTS::request& arg, NOTIFY_RESPONSE_GET_OBJECTS::request& rsp) { //Deprecated. Should be removed with CryptoNoteProtocolHandler.
+bool core::handle_get_objects(NOTIFY_REQUEST_GET_OBJECTS::request& arg, NOTIFY_RESPONSE_GET_OBJECTS::request& rsp) { //Deprecated. Should be removed with DogeroProtocolHandler.
   return m_blockchain.handleGetObjects(arg, rsp);
 }
 

@@ -9,7 +9,7 @@
 
 #include <Logging/ConsoleLogger.h>
 #include <System/Dispatcher.h>
-#include "CryptoNoteCore/Currency.h"
+#include "DogeroCore/Currency.h"
 
 #include "../IntegrationTestLib/TestNetwork.h"
 
@@ -19,7 +19,7 @@ class BaseTest : public testing::Test {
 public:
 
   BaseTest() :
-    currency(CryptoNote::CurrencyBuilder(logger).testnet(true).currency()),
+    currency(Dogero::CurrencyBuilder(logger).testnet(true).currency()),
     network(dispatcher, currency) {
   }
 
@@ -35,7 +35,7 @@ protected:
 
   System::Dispatcher dispatcher;
   Logging::ConsoleLogger logger;
-  CryptoNote::Currency currency;
+  Dogero::Currency currency;
   TestNetwork network;
 };
 

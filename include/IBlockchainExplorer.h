@@ -9,7 +9,7 @@
 
 #include "BlockchainExplorerData.h"
 
-namespace CryptoNote {
+namespace Dogero {
 
 class IBlockchainObserver {
 public:

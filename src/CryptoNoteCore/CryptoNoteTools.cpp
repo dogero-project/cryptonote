@@ -2,10 +2,10 @@
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#include "CryptoNoteTools.h"
-#include "CryptoNoteFormatUtils.h"
+#include "DogeroTools.h"
+#include "DogeroFormatUtils.h"
 
-namespace CryptoNote {
+namespace Dogero {
 template<>
 bool toBinaryArray(const BinaryArray& object, BinaryArray& binaryArray) {
   try {

@@ -17,7 +17,7 @@
 
 #include <Logging/LoggerRef.h>
 
-namespace CryptoNote {
+namespace Dogero {
 
 class HttpServer {
 

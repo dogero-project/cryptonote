@@ -9,7 +9,7 @@
 
 #include <Common/StringView.h>
 
-namespace CryptoNote {
+namespace Dogero {
 
 class ISerializer {
 public:

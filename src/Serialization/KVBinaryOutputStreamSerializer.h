@@ -9,7 +9,7 @@
 #include "ISerializer.h"
 #include "MemoryStream.h"
 
-namespace CryptoNote {
+namespace Dogero {
 
 class KVBinaryOutputStreamSerializer : public ISerializer {
 public:

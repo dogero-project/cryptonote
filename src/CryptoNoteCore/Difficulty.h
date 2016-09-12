@@ -9,7 +9,7 @@
 
 #include "crypto/hash.h"
 
-namespace CryptoNote
+namespace Dogero
 {
     typedef std::uint64_t difficulty_type;
 

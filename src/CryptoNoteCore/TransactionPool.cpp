@@ -18,15 +18,15 @@
 #include "Serialization/SerializationTools.h"
 #include "Serialization/BinarySerializationTools.h"
 
-#include "CryptoNoteFormatUtils.h"
-#include "CryptoNoteTools.h"
-#include "CryptoNoteConfig.h"
+#include "DogeroFormatUtils.h"
+#include "DogeroTools.h"
+#include "DogeroConfig.h"
 
 using namespace Logging;
 
 #undef ERROR
 
-namespace CryptoNote {
+namespace Dogero {
 
   //---------------------------------------------------------------------------------
   // BlockTemplate
@@ -82,13 +82,13 @@ namespace CryptoNote {
     std::vector<Crypto::Hash> m_txHashes;
   };
 
-  using CryptoNote::BlockInfo;
+  using Dogero::BlockInfo;
 
   //---------------------------------------------------------------------------------
   tx_memory_pool::tx_memory_pool(
-    const CryptoNote::Currency& currency, 
-    CryptoNote::ITransactionValidator& validator, 
-    CryptoNote::ITimeProvider& timeProvider,
+    const Dogero::Currency& currency,
+    Dogero::ITransactionValidator& validator,
+    Dogero::ITimeProvider& timeProvider,
     Logging::ILogger& log) :
     m_currency(currency),
     m_validator(validator), 
@@ -438,7 +438,7 @@ namespace CryptoNote {
 
 #define CURRENT_MEMPOOL_ARCHIVE_VER 1
 
-  void serialize(CryptoNote::tx_memory_pool::TransactionDetails& td, ISerializer& s) {
+  void serialize(Dogero::tx_memory_pool::TransactionDetails& td, ISerializer& s) {
     s(td.id, "id");
     s(td.blobSize, "blobSize");
     s(td.fee, "fee");

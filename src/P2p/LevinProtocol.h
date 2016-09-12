@@ -4,7 +4,7 @@
 
 #pragma once
 
-#include "CryptoNote.h"
+#include "Dogero.h"
 #include <Common/MemoryInputStream.h>
 #include <Common/VectorOutputStream.h>
 #include "Serialization/KVBinaryInputStreamSerializer.h"
@@ -14,7 +14,7 @@ namespace System {
 class TcpConnection;
 }
 
-namespace CryptoNote {
+namespace Dogero {
 
 enum class LevinError: int32_t {
   OK = 0,

@@ -7,15 +7,15 @@
 #include "P2pProtocolTypes.h"
 
 #include "crypto/crypto.h"
-#include "CryptoNoteConfig.h"
-#include "CryptoNoteCore/CryptoNoteStatInfo.h"
+#include "DogeroConfig.h"
+#include "DogeroCore/DogeroStatInfo.h"
 
 // new serialization
 #include "Serialization/ISerializer.h"
 #include "Serialization/SerializationOverloads.h"
-#include "CryptoNoteCore/CryptoNoteSerialization.h"
+#include "DogeroCore/DogeroSerialization.h"
 
-namespace CryptoNote
+namespace Dogero
 {
   inline bool serialize(uuid& v, Common::StringView name, ISerializer& s) {
     return s.binary(&v, sizeof(v), name);

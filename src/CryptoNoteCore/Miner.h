@@ -9,18 +9,18 @@
 #include <mutex>
 #include <thread>
 
-#include "CryptoNoteCore/CryptoNoteBasic.h"
-#include "CryptoNoteCore/Currency.h"
-#include "CryptoNoteCore/Difficulty.h"
-#include "CryptoNoteCore/IMinerHandler.h"
-#include "CryptoNoteCore/MinerConfig.h"
-#include "CryptoNoteCore/OnceInInterval.h"
+#include "DogeroCore/DogeroBasic.h"
+#include "DogeroCore/Currency.h"
+#include "DogeroCore/Difficulty.h"
+#include "DogeroCore/IMinerHandler.h"
+#include "DogeroCore/MinerConfig.h"
+#include "DogeroCore/OnceInInterval.h"
 
 #include <Logging/LoggerRef.h>
 
 #include "Serialization/ISerializer.h"
 
-namespace CryptoNote {
+namespace Dogero {
   class miner {
   public:
     miner(const Currency& currency, IMinerHandler& handler, Logging::ILogger& log);

@@ -7,14 +7,14 @@
 #include <numeric>
 #include <system_error>
 
-#include "CryptoNoteCore/CryptoNoteBasic.h"
-#include "CryptoNoteCore/TransactionApiExtra.h"
+#include "DogeroCore/DogeroBasic.h"
+#include "DogeroCore/TransactionApiExtra.h"
 #include "TransactionUtils.h"
-#include "CryptoNoteCore/CryptoNoteTools.h"
+#include "DogeroCore/DogeroTools.h"
 
 using namespace Crypto;
 
-namespace CryptoNote {
+namespace Dogero {
 
 class TransactionPrefixImpl : public ITransactionReader {
 public:
@@ -171,11 +171,11 @@ void TransactionPrefixImpl::getOutput(size_t index, MultisignatureOutput& output
 }
 
 size_t TransactionPrefixImpl::getRequiredSignaturesCount(size_t inputIndex) const {
-  return ::CryptoNote::getRequiredSignaturesCount(getInputChecked(m_txPrefix, inputIndex));
+  return ::Dogero::getRequiredSignaturesCount(getInputChecked(m_txPrefix, inputIndex));
 }
 
 bool TransactionPrefixImpl::findOutputsToAccount(const AccountPublicAddress& addr, const SecretKey& viewSecretKey, std::vector<uint32_t>& outs, uint64_t& outputAmount) const {
-  return ::CryptoNote::findOutputsToAccount(m_txPrefix, addr, viewSecretKey, outs, outputAmount);
+  return ::Dogero::findOutputsToAccount(m_txPrefix, addr, viewSecretKey, outs, outputAmount);
 }
 
 bool TransactionPrefixImpl::validateInputs() const {

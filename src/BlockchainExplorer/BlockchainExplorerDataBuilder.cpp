@@ -8,14 +8,14 @@
 #include <boost/range/combine.hpp>
 
 #include "Common/StringTools.h"
-#include "CryptoNoteCore/CryptoNoteFormatUtils.h"
-#include "CryptoNoteCore/CryptoNoteTools.h"
-#include "CryptoNoteCore/TransactionExtra.h"
-#include "CryptoNoteConfig.h"
+#include "DogeroCore/DogeroFormatUtils.h"
+#include "DogeroCore/DogeroTools.h"
+#include "DogeroCore/TransactionExtra.h"
+#include "DogeroConfig.h"
 
-namespace CryptoNote {
+namespace Dogero {
 
-BlockchainExplorerDataBuilder::BlockchainExplorerDataBuilder(CryptoNote::ICore& core, CryptoNote::ICryptoNoteProtocolQuery& protocol) :
+BlockchainExplorerDataBuilder::BlockchainExplorerDataBuilder(Dogero::ICore& core, Dogero::IDogeroProtocolQuery& protocol) :
 core(core),
 protocol(protocol) {
 }
@@ -104,7 +104,7 @@ bool BlockchainExplorerDataBuilder::fillBlockDetails(const Block &block, BlockDe
   }
 
   std::vector<size_t> blocksSizes;
-  if (!core.getBackwardBlocksSizes(blockDetails.height, blocksSizes, parameters::CRYPTONOTE_REWARD_BLOCKS_WINDOW)) {
+  if (!core.getBackwardBlocksSizes(blockDetails.height, blocksSizes, parameters::DOGERO_REWARD_BLOCKS_WINDOW)) {
     return false;
   }
   blockDetails.sizeMedian = median(blocksSizes);

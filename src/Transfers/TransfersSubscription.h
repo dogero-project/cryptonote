@@ -8,11 +8,11 @@
 #include "TransfersContainer.h"
 #include "IObservableImpl.h"
 
-namespace CryptoNote {
+namespace Dogero {
 
 class TransfersSubscription : public IObservableImpl < ITransfersObserver, ITransfersSubscription > {
 public:
-  TransfersSubscription(const CryptoNote::Currency& currency, const AccountSubscription& sub);
+  TransfersSubscription(const Dogero::Currency& currency, const AccountSubscription& sub);
 
   SynchronizationStart getSyncStart();
   void onBlockchainDetach(uint32_t height);

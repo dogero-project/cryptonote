@@ -4,11 +4,11 @@
 
 #include "BlockchainExplorerErrors.h"
 
-namespace CryptoNote {
+namespace Dogero {
 namespace error {
 
 BlockchainExplorerErrorCategory BlockchainExplorerErrorCategory::INSTANCE;
 
 } //namespace error
-} //namespace CryptoNote
+} //namespace Dogero
 

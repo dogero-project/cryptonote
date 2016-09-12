@@ -4,7 +4,7 @@
 
 #include "NodeErrors.h"
 
-namespace CryptoNote {
+namespace Dogero {
 namespace error {
 
 NodeErrorCategory NodeErrorCategory::INSTANCE;

@@ -12,12 +12,12 @@
 #include <boost/lexical_cast.hpp>
 #include <boost/program_options.hpp>
 
-#include "CryptoNoteConfig.h"
+#include "DogeroConfig.h"
 #include "Logging/ILogger.h"
 
 namespace po = boost::program_options;
 
-namespace CryptoNote {
+namespace Dogero {
 
 namespace {
 

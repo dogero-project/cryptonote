@@ -11,12 +11,12 @@
 #include "System/Dispatcher.h"
 #include "System/Event.h"
 
-#include "CryptoNoteCore/MessageQueue.h"
-#include "CryptoNoteCore/BlockchainMessages.h"
-#include "CryptoNoteCore/IntrusiveLinkedList.h"
-#include "CryptoNoteCore/CryptoNoteTools.h"
+#include "DogeroCore/MessageQueue.h"
+#include "DogeroCore/BlockchainMessages.h"
+#include "DogeroCore/IntrusiveLinkedList.h"
+#include "DogeroCore/DogeroTools.h"
 
-using namespace CryptoNote;
+using namespace Dogero;
 
 class MessageQueueTest : public testing::Test {
 public:

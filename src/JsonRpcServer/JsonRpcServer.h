@@ -13,7 +13,7 @@
 #include "Rpc/HttpServer.h"
 
 
-namespace CryptoNote {
+namespace Dogero {
 class HttpResponse;
 class HttpRequest;
 }
@@ -26,7 +26,7 @@ namespace System {
 class TcpConnection;
 }
 
-namespace CryptoNote {
+namespace Dogero {
 
 class JsonRpcServer : HttpServer {
 public:
@@ -47,11 +47,11 @@ protected:
 
 private:
   // HttpServer
-  virtual void processRequest(const CryptoNote::HttpRequest& request, CryptoNote::HttpResponse& response) override;
+  virtual void processRequest(const Dogero::HttpRequest& request, Dogero::HttpResponse& response) override;
 
   System::Dispatcher& system;
   System::Event& stopEvent;
   Logging::LoggerRef logger;
 };
 
-} //namespace CryptoNote
+} //namespace Dogero

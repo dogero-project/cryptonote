@@ -5,7 +5,7 @@
 #pragma once
 
 #include "crypto/crypto.h"
-#include "CryptoNoteCore/CryptoNoteBasic.h"
+#include "DogeroCore/DogeroBasic.h"
 
 #include "SingleTransactionTestBase.h"
 
@@ -27,7 +27,7 @@ public:
 
   bool test()
   {
-    CryptoNote::KeyPair in_ephemeral;
+    Dogero::KeyPair in_ephemeral;
     Crypto::derive_secret_key(m_key_derivation, 0, m_spend_secret_key, in_ephemeral.secretKey);
     return true;
   }

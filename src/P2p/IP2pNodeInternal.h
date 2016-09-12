@@ -7,7 +7,7 @@
 #include <list>
 #include "P2pProtocolDefinitions.h"
 
-namespace CryptoNote {
+namespace Dogero {
 
 class P2pContext;
 

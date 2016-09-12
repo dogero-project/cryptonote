@@ -8,9 +8,9 @@
 #include "Transfers/TransfersConsumer.h"
 
 #include "crypto/hash.h"
-#include "CryptoNoteCore/TransactionApi.h"
-#include "CryptoNoteCore/CryptoNoteFormatUtils.h"
-#include "CryptoNoteCore/CryptoNoteTools.h"
+#include "DogeroCore/TransactionApi.h"
+#include "DogeroCore/DogeroFormatUtils.h"
+#include "DogeroCore/DogeroTools.h"
 #include "Logging/ConsoleLogger.h"
 
 #include "INodeStubs.h"
@@ -18,7 +18,7 @@
 #include "EventWaiter.h"
 
 using namespace Crypto;
-using namespace CryptoNote;
+using namespace Dogero;
 
 
 namespace {

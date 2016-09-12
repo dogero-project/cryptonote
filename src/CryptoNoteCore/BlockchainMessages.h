@@ -6,9 +6,9 @@
 
 #include <vector>
 
-#include <CryptoNote.h>
+#include <Dogero.h>
 
-namespace CryptoNote {
+namespace Dogero {
 
 class NewBlockMessage {
 public:

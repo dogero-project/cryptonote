@@ -10,10 +10,10 @@
 
 #include "Common/int-util.h"
 #include "crypto/hash.h"
-#include "CryptoNoteConfig.h"
+#include "DogeroConfig.h"
 #include "Difficulty.h"
 
-namespace CryptoNote {
+namespace Dogero {
 
   using std::uint64_t;
   using std::vector;

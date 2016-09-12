@@ -8,13 +8,13 @@
 #include <string>
 #include <vector>
 #include <boost/utility.hpp>
-#include "../CryptoNoteConfig.h"
+#include "../DogeroConfig.h"
 #include "../crypto/hash.h"
 #include "../Logging/LoggerRef.h"
-#include "CryptoNoteBasic.h"
+#include "DogeroBasic.h"
 #include "Difficulty.h"
 
-namespace CryptoNote {
+namespace Dogero {
 
 class AccountBase;
 

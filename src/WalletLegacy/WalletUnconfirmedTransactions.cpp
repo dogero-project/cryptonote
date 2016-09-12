@@ -5,13 +5,13 @@
 #include "WalletUnconfirmedTransactions.h"
 #include "WalletLegacy/WalletLegacySerialization.h"
 
-#include "CryptoNoteCore/CryptoNoteTools.h"
+#include "DogeroCore/DogeroTools.h"
 #include "Serialization/ISerializer.h"
 #include "Serialization/SerializationOverloads.h"
 
 using namespace Crypto;
 
-namespace CryptoNote {
+namespace Dogero {
 
 inline TransactionOutputId getOutputId(const TransactionOutputInformation& out) {
   return std::make_pair(out.transactionPublicKey, out.outputInTransaction);
@@ -140,4 +140,4 @@ std::vector<TransactionId> WalletUnconfirmedTransactions::deleteOutdatedTransact
   return deletedTransactions;
 }
 
-} /* namespace CryptoNote */
+} /* namespace Dogero */

@@ -10,15 +10,15 @@
 #include <Logging/LoggerRef.h>
 #include "CoreRpcServerCommandsDefinitions.h"
 
-namespace CryptoNote {
+namespace Dogero {
 
 class core;
 class NodeServer;
-class ICryptoNoteProtocolQuery;
+class IDogeroProtocolQuery;
 
 class RpcServer : public HttpServer {
 public:
-  RpcServer(System::Dispatcher& dispatcher, Logging::ILogger& log, core& c, NodeServer& p2p, const ICryptoNoteProtocolQuery& protocolQuery);
+  RpcServer(System::Dispatcher& dispatcher, Logging::ILogger& log, core& c, NodeServer& p2p, const IDogeroProtocolQuery& protocolQuery);
 
   typedef std::function<bool(RpcServer*, const HttpRequest& request, HttpResponse& response)> HandlerFunction;
 
@@ -70,7 +70,7 @@ private:
   Logging::LoggerRef logger;
   core& m_core;
   NodeServer& m_p2p;
-  const ICryptoNoteProtocolQuery& m_protocolQuery;
+  const IDogeroProtocolQuery& m_protocolQuery;
 };
 
 }

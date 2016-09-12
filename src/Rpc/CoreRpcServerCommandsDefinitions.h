@@ -4,14 +4,14 @@
 
 #pragma once
 
-#include "CryptoNoteProtocol/CryptoNoteProtocolDefinitions.h"
-#include "CryptoNoteCore/CryptoNoteBasic.h"
-#include "CryptoNoteCore/Difficulty.h"
+#include "DogeroProtocol/DogeroProtocolDefinitions.h"
+#include "DogeroCore/DogeroBasic.h"
+#include "DogeroCore/Difficulty.h"
 #include "crypto/hash.h"
 
 #include "Serialization/SerializationOverloads.h"
 
-namespace CryptoNote {
+namespace Dogero {
 //-----------------------------------------------
 #define CORE_RPC_STATUS_OK "OK"
 #define CORE_RPC_STATUS_BUSY "BUSY"

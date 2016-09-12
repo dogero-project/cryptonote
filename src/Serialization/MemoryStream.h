@@ -10,7 +10,7 @@
 #include <vector>
 #include <Common/IOutputStream.h>
 
-namespace CryptoNote {
+namespace Dogero {
 
 class MemoryStream: public Common::IOutputStream {
 public:

@@ -8,7 +8,7 @@
 #include "../Common/JsonValue.h"
 #include "ISerializer.h"
 
-namespace CryptoNote {
+namespace Dogero {
 
 class JsonOutputStreamSerializer : public ISerializer {
 public:

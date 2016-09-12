@@ -10,7 +10,7 @@
 #include <Common/StreamTools.h>
 
 using namespace Common;
-using namespace CryptoNote;
+using namespace Dogero;
 
 namespace {
 
@@ -54,7 +54,7 @@ size_t writeArraySize(IOutputStream& s, size_t val) {
 
 }
 
-namespace CryptoNote {
+namespace Dogero {
 
 KVBinaryOutputStreamSerializer::KVBinaryOutputStreamSerializer() {
   beginObject(std::string());

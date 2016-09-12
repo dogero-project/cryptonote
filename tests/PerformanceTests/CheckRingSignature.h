@@ -6,10 +6,10 @@
 
 #include <vector>
 
-#include "CryptoNoteCore/Account.h"
-#include "CryptoNoteCore/CryptoNoteBasic.h"
-#include "CryptoNoteCore/CryptoNoteFormatUtils.h"
-#include "CryptoNoteCore/CryptoNoteTools.h"
+#include "DogeroCore/Account.h"
+#include "DogeroCore/DogeroBasic.h"
+#include "DogeroCore/DogeroFormatUtils.h"
+#include "DogeroCore/DogeroTools.h"
 #include "crypto/crypto.h"
 
 #include "MultiTransactionTestBase.h"
@@ -27,7 +27,7 @@ public:
 
   bool init()
   {
-    using namespace CryptoNote;
+    using namespace Dogero;
 
     if (!base_class::init())
       return false;
@@ -47,12 +47,12 @@ public:
 
   bool test()
   {
-    const CryptoNote::KeyInput& txin = boost::get<CryptoNote::KeyInput>(m_tx.inputs[0]);
+    const Dogero::KeyInput& txin = boost::get<Dogero::KeyInput>(m_tx.inputs[0]);
     return Crypto::check_ring_signature(m_tx_prefix_hash, txin.keyImage, this->m_public_key_ptrs, ring_size, m_tx.signatures[0].data());
   }
 
 private:
-  CryptoNote::AccountBase m_alice;
-  CryptoNote::Transaction m_tx;
+  Dogero::AccountBase m_alice;
+  Dogero::Transaction m_tx;
   Crypto::Hash m_tx_prefix_hash;
 };

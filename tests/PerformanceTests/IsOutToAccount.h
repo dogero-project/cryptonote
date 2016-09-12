@@ -4,8 +4,8 @@
 
 #pragma once
 
-#include "CryptoNoteCore/CryptoNoteBasic.h"
-#include "CryptoNoteCore/CryptoNoteFormatUtils.h"
+#include "DogeroCore/DogeroBasic.h"
+#include "DogeroCore/DogeroFormatUtils.h"
 
 #include "SingleTransactionTestBase.h"
 
@@ -16,7 +16,7 @@ public:
 
   bool test()
   {
-    const CryptoNote::KeyOutput& tx_out = boost::get<CryptoNote::KeyOutput>(m_tx.outputs[0].target);
-    return CryptoNote::is_out_to_acc(m_bob.getAccountKeys(), tx_out, m_tx_pub_key, 0);
+    const Dogero::KeyOutput& tx_out = boost::get<Dogero::KeyOutput>(m_tx.outputs[0].target);
+    return Dogero::is_out_to_acc(m_bob.getAccountKeys(), tx_out, m_tx_pub_key, 0);
   }
 };

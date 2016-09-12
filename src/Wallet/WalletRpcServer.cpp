@@ -8,8 +8,8 @@
 
 #include "Common/CommandLine.h"
 #include "Common/StringTools.h"
-#include "CryptoNoteCore/CryptoNoteFormatUtils.h"
-#include "CryptoNoteCore/Account.h"
+#include "DogeroCore/DogeroFormatUtils.h"
+#include "DogeroCore/Account.h"
 #include "crypto/hash.h"
 #include "WalletLegacy/WalletHelper.h"
 // #include "wallet_errors.h"
@@ -17,7 +17,7 @@
 #include "Rpc/JsonRpc.h"
 
 using namespace Logging;
-using namespace CryptoNote;
+using namespace Dogero;
 
 namespace Tools {
 
@@ -32,9 +32,9 @@ void wallet_rpc_server::init_options(boost::program_options::options_description
 wallet_rpc_server::wallet_rpc_server(
   System::Dispatcher& dispatcher, 
   Logging::ILogger& log, 
-  CryptoNote::IWalletLegacy&w,
-  CryptoNote::INode& n, 
-  CryptoNote::Currency& currency, 
+  Dogero::IWalletLegacy&w,
+  Dogero::INode& n,
+  Dogero::Currency& currency,
   const std::string& walletFile)
   : 
   HttpServer(dispatcher, log), 
@@ -77,9 +77,9 @@ bool wallet_rpc_server::init(const boost::program_options::variables_map& vm) {
   return true;
 }
 
-void wallet_rpc_server::processRequest(const CryptoNote::HttpRequest& request, CryptoNote::HttpResponse& response) {
+void wallet_rpc_server::processRequest(const Dogero::HttpRequest& request, Dogero::HttpResponse& response) {
 
-  using namespace CryptoNote::JsonRpc;
+  using namespace Dogero::JsonRpc;
 
   JsonRpcRequest jsonRequest;
   JsonRpcResponse jsonResponse;
@@ -122,9 +122,9 @@ bool wallet_rpc_server::on_getbalance(const wallet_rpc::COMMAND_RPC_GET_BALANCE:
 }
 //------------------------------------------------------------------------------------------------------------------------------
 bool wallet_rpc_server::on_transfer(const wallet_rpc::COMMAND_RPC_TRANSFER::request& req, wallet_rpc::COMMAND_RPC_TRANSFER::response& res) {
-  std::vector<CryptoNote::WalletLegacyTransfer> transfers;
+  std::vector<Dogero::WalletLegacyTransfer> transfers;
   for (auto it = req.destinations.begin(); it != req.destinations.end(); it++) {
-    CryptoNote::WalletLegacyTransfer transfer;
+    Dogero::WalletLegacyTransfer transfer;
     transfer.address = it->address;
     transfer.amount = it->amount;
     transfers.push_back(transfer);
@@ -135,14 +135,14 @@ bool wallet_rpc_server::on_transfer(const wallet_rpc::COMMAND_RPC_TRANSFER::requ
     std::string payment_id_str = req.payment_id;
 
     Crypto::Hash payment_id;
-    if (!CryptoNote::parsePaymentId(payment_id_str, payment_id)) {
+    if (!Dogero::parsePaymentId(payment_id_str, payment_id)) {
       throw JsonRpc::JsonRpcError(WALLET_RPC_ERROR_CODE_WRONG_PAYMENT_ID, 
         "Payment id has invalid format: \"" + payment_id_str + "\", expected 64-character string");
     }
 
     BinaryArray extra_nonce;
-    CryptoNote::setPaymentIdToTransactionExtraNonce(extra_nonce, payment_id);
-    if (!CryptoNote::addExtraNonceToTransactionExtra(extra, extra_nonce)) {
+    Dogero::setPaymentIdToTransactionExtraNonce(extra_nonce, payment_id);
+    if (!Dogero::addExtraNonceToTransactionExtra(extra, extra_nonce)) {
       throw JsonRpc::JsonRpcError(WALLET_RPC_ERROR_CODE_WRONG_PAYMENT_ID,
         "Something went wrong with payment_id. Please check its format: \"" + payment_id_str + "\", expected 64-character string");
     }
@@ -151,10 +151,10 @@ bool wallet_rpc_server::on_transfer(const wallet_rpc::COMMAND_RPC_TRANSFER::requ
   std::string extraString;
   std::copy(extra.begin(), extra.end(), std::back_inserter(extraString));
   try {
-    CryptoNote::WalletHelper::SendCompleteResultObserver sent;
+    Dogero::WalletHelper::SendCompleteResultObserver sent;
     WalletHelper::IWalletRemoveObserverGuard removeGuard(m_wallet, sent);
 
-    CryptoNote::TransactionId tx = m_wallet.sendTransaction(transfers, req.fee, extraString, req.mixin, req.unlock_time);
+    Dogero::TransactionId tx = m_wallet.sendTransaction(transfers, req.fee, extraString, req.mixin, req.unlock_time);
     if (tx == WALLET_LEGACY_INVALID_TRANSACTION_ID) {
       throw std::runtime_error("Couldn't send transaction");
     }
@@ -166,7 +166,7 @@ bool wallet_rpc_server::on_transfer(const wallet_rpc::COMMAND_RPC_TRANSFER::requ
       throw std::system_error(sendError);
     }
 
-    CryptoNote::WalletLegacyTransaction txInfo;
+    Dogero::WalletLegacyTransaction txInfo;
     m_wallet.getTransaction(tx, txInfo);
     res.tx_hash = Common::podToHex(txInfo.hash);
 
@@ -188,7 +188,7 @@ bool wallet_rpc_server::on_store(const wallet_rpc::COMMAND_RPC_STORE::request& r
 //------------------------------------------------------------------------------------------------------------------------------
 bool wallet_rpc_server::on_get_payments(const wallet_rpc::COMMAND_RPC_GET_PAYMENTS::request& req, wallet_rpc::COMMAND_RPC_GET_PAYMENTS::response& res) {
   Crypto::Hash expectedPaymentId;
-  CryptoNote::BinaryArray payment_id_blob;
+  Dogero::BinaryArray payment_id_blob;
 
   if (!Common::fromHex(req.payment_id, payment_id_blob)) {
     throw JsonRpc::JsonRpcError(WALLET_RPC_ERROR_CODE_WRONG_PAYMENT_ID, "Payment ID has invald format");

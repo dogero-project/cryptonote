@@ -2,36 +2,36 @@
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#include "ICryptoNoteProtocolQueryStub.h"
+#include "IDogeroProtocolQueryStub.h"
 
-bool ICryptoNoteProtocolQueryStub::addObserver(CryptoNote::ICryptoNoteProtocolObserver* observer) {
+bool IDogeroProtocolQueryStub::addObserver(Dogero::IDogeroProtocolObserver* observer) {
   return false;
 }
 
-bool ICryptoNoteProtocolQueryStub::removeObserver(CryptoNote::ICryptoNoteProtocolObserver* observer) {
+bool IDogeroProtocolQueryStub::removeObserver(Dogero::IDogeroProtocolObserver* observer) {
   return false;
 }
 
-uint32_t ICryptoNoteProtocolQueryStub::getObservedHeight() const {
+uint32_t IDogeroProtocolQueryStub::getObservedHeight() const {
   return observedHeight;
 }
 
-size_t ICryptoNoteProtocolQueryStub::getPeerCount() const {
+size_t IDogeroProtocolQueryStub::getPeerCount() const {
   return peers;
 }
 
-bool ICryptoNoteProtocolQueryStub::isSynchronized() const {
+bool IDogeroProtocolQueryStub::isSynchronized() const {
   return synchronized;
 }
 
-void ICryptoNoteProtocolQueryStub::setPeerCount(uint32_t count) {
+void IDogeroProtocolQueryStub::setPeerCount(uint32_t count) {
   peers = count;
 }
 
-void ICryptoNoteProtocolQueryStub::setObservedHeight(uint32_t height) {
+void IDogeroProtocolQueryStub::setObservedHeight(uint32_t height) {
   observedHeight = height;
 }
 
-void ICryptoNoteProtocolQueryStub::setSynchronizedStatus(bool status) {
+void IDogeroProtocolQueryStub::setSynchronizedStatus(bool status) {
     synchronized = status;
 }

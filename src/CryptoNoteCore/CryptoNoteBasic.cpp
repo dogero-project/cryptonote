@@ -2,10 +2,10 @@
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#include "CryptoNoteBasic.h"
+#include "DogeroBasic.h"
 #include "crypto/crypto.h"
 
-namespace CryptoNote {
+namespace Dogero {
 
 KeyPair generateKeyPair() {
   KeyPair k;

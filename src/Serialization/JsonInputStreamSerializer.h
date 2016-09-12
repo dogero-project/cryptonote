@@ -10,7 +10,7 @@
 #include "../Common/JsonValue.h"
 #include "JsonInputValueSerializer.h"
 
-namespace CryptoNote {
+namespace Dogero {
 
 //deserialization
 class JsonInputStreamSerializer : public JsonInputValueSerializer {

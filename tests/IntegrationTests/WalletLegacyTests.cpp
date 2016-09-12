@@ -9,7 +9,7 @@
 #include "WalletLegacyObserver.h"
 
 using namespace Tests;
-using namespace CryptoNote;
+using namespace Dogero;
 
 class WalletLegacyTests : public BaseTest {
 

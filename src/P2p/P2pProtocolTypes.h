@@ -9,7 +9,7 @@
 #include <boost/uuid/uuid.hpp>
 #include "Common/StringTools.h"
 
-namespace CryptoNote
+namespace Dogero
 {
   typedef boost::uuids::uuid uuid;
   typedef boost::uuids::uuid net_connection_id;

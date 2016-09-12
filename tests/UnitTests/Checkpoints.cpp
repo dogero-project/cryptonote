@@ -4,10 +4,10 @@
 
 #include "gtest/gtest.h"
 
-#include "CryptoNoteCore/Checkpoints.h"
+#include "DogeroCore/Checkpoints.h"
 #include <Logging/LoggerGroup.h>
 
-using namespace CryptoNote;
+using namespace Dogero;
 
 TEST(checkpoints_is_alternative_block_allowed, handles_empty_checkpoins)
 {

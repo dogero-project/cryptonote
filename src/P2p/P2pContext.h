@@ -13,13 +13,13 @@
 #include <System/TcpConnection.h>
 #include <System/Timer.h>
 
-#include "CryptoNoteConfig.h"
+#include "DogeroConfig.h"
 #include "LevinProtocol.h"
 #include "P2pInterfaces.h"
 #include "P2pProtocolDefinitions.h"
 #include "P2pProtocolTypes.h"
 
-namespace CryptoNote {
+namespace Dogero {
   
 class P2pContext {
 public:

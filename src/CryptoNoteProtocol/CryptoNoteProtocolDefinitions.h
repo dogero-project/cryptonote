@@ -5,14 +5,14 @@
 #pragma once
 
 #include <list>
-#include "CryptoNoteCore/CryptoNoteBasic.h"
+#include "DogeroCore/DogeroBasic.h"
 
 // ISerializer-based serialization
 #include "Serialization/ISerializer.h"
 #include "Serialization/SerializationOverloads.h"
-#include "CryptoNoteCore/CryptoNoteSerialization.h"
+#include "DogeroCore/DogeroSerialization.h"
 
-namespace CryptoNote
+namespace Dogero
 {
 
 #define BC_COMMANDS_POOL_BASE 2000

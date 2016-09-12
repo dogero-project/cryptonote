@@ -11,32 +11,32 @@
 #include "crypto/hash.h"
 #include "crypto/chacha8.h"
 
-namespace CryptoNote {
+namespace Dogero {
 class AccountBase;
 class ISerializer;
 }
 
-namespace CryptoNote {
+namespace Dogero {
 
 class WalletUserTransactionsCache;
 
 class WalletLegacySerializer {
 public:
-  WalletLegacySerializer(CryptoNote::AccountBase& account, WalletUserTransactionsCache& transactionsCache);
+  WalletLegacySerializer(Dogero::AccountBase& account, WalletUserTransactionsCache& transactionsCache);
 
   void serialize(std::ostream& stream, const std::string& password, bool saveDetailed, const std::string& cache);
   void deserialize(std::istream& stream, const std::string& password, std::string& cache);
 
 private:
-  void saveKeys(CryptoNote::ISerializer& serializer);
-  void loadKeys(CryptoNote::ISerializer& serializer);
+  void saveKeys(Dogero::ISerializer& serializer);
+  void loadKeys(Dogero::ISerializer& serializer);
 
   Crypto::chacha8_iv encrypt(const std::string& plain, const std::string& password, std::string& cipher);
   void decrypt(const std::string& cipher, std::string& plain, Crypto::chacha8_iv iv, const std::string& password);
 
-  CryptoNote::AccountBase& account;
+  Dogero::AccountBase& account;
   WalletUserTransactionsCache& transactionsCache;
   const uint32_t walletSerializationVersion;
 };
 
-} //namespace CryptoNote
+} //namespace Dogero

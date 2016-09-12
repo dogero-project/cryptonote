@@ -18,14 +18,14 @@
 #include <boost/multi_index/composite_key.hpp>
 #include <boost/multi_index/member.hpp>
 
-namespace CryptoNote {
+namespace Dogero {
 
 const uint64_t ACCOUNT_CREATE_TIME_ACCURACY = 60 * 60 * 24;
 
 struct WalletRecord {
   Crypto::PublicKey spendPublicKey;
   Crypto::SecretKey spendSecretKey;
-  CryptoNote::ITransfersContainer* container = nullptr;
+  Dogero::ITransfersContainer* container = nullptr;
   uint64_t pendingBalance = 0;
   uint64_t actualBalance = 0;
   time_t creationTimestamp;
@@ -50,13 +50,13 @@ typedef boost::multi_index_container <
     boost::multi_index::hashed_unique < boost::multi_index::tag <KeysIndex>,
     BOOST_MULTI_INDEX_MEMBER(WalletRecord, Crypto::PublicKey, spendPublicKey)>,
     boost::multi_index::hashed_unique < boost::multi_index::tag <TransfersContainerIndex>,
-      BOOST_MULTI_INDEX_MEMBER(WalletRecord, CryptoNote::ITransfersContainer*, container) >
+      BOOST_MULTI_INDEX_MEMBER(WalletRecord, Dogero::ITransfersContainer*, container) >
   >
 > WalletsContainer;
 
 struct UnlockTransactionJob {
   uint32_t blockHeight;
-  CryptoNote::ITransfersContainer* container;
+  Dogero::ITransfersContainer* container;
   Crypto::Hash transactionHash;
 };
 
@@ -73,21 +73,21 @@ typedef boost::multi_index_container <
 > UnlockTransactionJobs;
 
 typedef boost::multi_index_container <
-  CryptoNote::WalletTransaction,
+  Dogero::WalletTransaction,
   boost::multi_index::indexed_by <
     boost::multi_index::random_access < boost::multi_index::tag <RandomAccessIndex> >,
     boost::multi_index::hashed_unique < boost::multi_index::tag <TransactionIndex>,
-      boost::multi_index::member<CryptoNote::WalletTransaction, Crypto::Hash, &CryptoNote::WalletTransaction::hash >
+      boost::multi_index::member<Dogero::WalletTransaction, Crypto::Hash, &Dogero::WalletTransaction::hash >
     >,
     boost::multi_index::ordered_non_unique < boost::multi_index::tag <BlockHeightIndex>,
-      boost::multi_index::member<CryptoNote::WalletTransaction, uint32_t, &CryptoNote::WalletTransaction::blockHeight >
+      boost::multi_index::member<Dogero::WalletTransaction, uint32_t, &Dogero::WalletTransaction::blockHeight >
     >
   >
 > WalletTransactions;
 
-typedef std::pair<size_t, CryptoNote::WalletTransfer> TransactionTransferPair;
+typedef std::pair<size_t, Dogero::WalletTransfer> TransactionTransferPair;
 typedef std::vector<TransactionTransferPair> WalletTransfers;
-typedef std::map<size_t, CryptoNote::Transaction> UncommitedTransactions;
+typedef std::map<size_t, Dogero::Transaction> UncommitedTransactions;
 
 typedef boost::multi_index_container<
   Crypto::Hash,

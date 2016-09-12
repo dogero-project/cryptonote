@@ -4,9 +4,9 @@
 
 #pragma once
 
-#include "CryptoNote.h"
+#include "Dogero.h"
 
-namespace CryptoNote {
+namespace Dogero {
 class IBlock {
 public:
   virtual ~IBlock();

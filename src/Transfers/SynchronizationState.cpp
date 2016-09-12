@@ -8,11 +8,11 @@
 #include "Common/StdOutputStream.h"
 #include "Serialization/BinaryInputStreamSerializer.h"
 #include "Serialization/BinaryOutputStreamSerializer.h"
-#include "CryptoNoteCore/CryptoNoteSerialization.h"
+#include "DogeroCore/DogeroSerialization.h"
 
 using namespace Common;
 
-namespace CryptoNote {
+namespace Dogero {
 
 SynchronizationState::ShortHistory SynchronizationState::getShortHistory(uint32_t localHeight) const {
   ShortHistory history;
@@ -96,17 +96,17 @@ const std::vector<Crypto::Hash>& SynchronizationState::getKnownBlockHashes() con
 
 void SynchronizationState::save(std::ostream& os) {
   StdOutputStream stream(os);
-  CryptoNote::BinaryOutputStreamSerializer s(stream);
+  Dogero::BinaryOutputStreamSerializer s(stream);
   serialize(s, "state");
 }
 
 void SynchronizationState::load(std::istream& in) {
   StdInputStream stream(in);
-  CryptoNote::BinaryInputStreamSerializer s(stream);
+  Dogero::BinaryInputStreamSerializer s(stream);
   serialize(s, "state");
 }
 
-CryptoNote::ISerializer& SynchronizationState::serialize(CryptoNote::ISerializer& s, const std::string& name) {
+Dogero::ISerializer& SynchronizationState::serialize(Dogero::ISerializer& s, const std::string& name) {
   s.beginObject(name);
   s(m_blockchain, "blockchain");
   s.endObject();

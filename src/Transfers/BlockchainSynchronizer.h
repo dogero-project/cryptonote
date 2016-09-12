@@ -15,7 +15,7 @@
 #include <atomic>
 #include <future>
 
-namespace CryptoNote {
+namespace Dogero {
 
 class BlockchainSynchronizer :
   public IObservableImpl<IBlockchainSynchronizerObserver, IBlockchainSynchronizer>,

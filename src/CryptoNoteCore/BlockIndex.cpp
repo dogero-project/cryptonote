@@ -6,10 +6,10 @@
 
 #include <boost/utility/value_init.hpp>
 
-#include "CryptoNoteSerialization.h"
+#include "DogeroSerialization.h"
 #include "Serialization/SerializationOverloads.h"
 
-namespace CryptoNote {
+namespace Dogero {
   Crypto::Hash BlockIndex::getBlockId(uint32_t height) const {
     assert(height < m_container.size());
 

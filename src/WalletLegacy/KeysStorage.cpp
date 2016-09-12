@@ -7,9 +7,9 @@
 #include "WalletLegacy/WalletLegacySerialization.h"
 #include "Serialization/ISerializer.h"
 #include "Serialization/SerializationOverloads.h"
-#include "CryptoNoteCore/CryptoNoteSerialization.h"
+#include "DogeroCore/DogeroSerialization.h"
 
-namespace CryptoNote {
+namespace Dogero {
 
 void KeysStorage::serialize(ISerializer& serializer, const std::string& name) {
   serializer.beginObject(name);

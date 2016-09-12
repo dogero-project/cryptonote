@@ -8,9 +8,9 @@
 #include "Common/StringTools.h"
 
 using Common::JsonValue;
-using namespace CryptoNote;
+using namespace Dogero;
 
-namespace CryptoNote {
+namespace Dogero {
 std::ostream& operator<<(std::ostream& out, const JsonOutputStreamSerializer& enumerator) {
   out << enumerator.root;
   return out;

@@ -9,8 +9,8 @@
 #include <sstream>
 #include <unordered_set>
 
-#include "CryptoNoteCore/TransactionApi.h"
-#include "CryptoNoteCore/CryptoNoteFormatUtils.h"
+#include "DogeroCore/TransactionApi.h"
+#include "DogeroCore/DogeroFormatUtils.h"
 
 using namespace Crypto;
 
@@ -25,7 +25,7 @@ inline std::vector<uint8_t> stringToVector(const std::string& s) {
 
 }
 
-namespace CryptoNote {
+namespace Dogero {
 
 BlockchainSynchronizer::BlockchainSynchronizer(INode& node, const Hash& genesisBlockHash) :
   m_node(node),

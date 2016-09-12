@@ -6,15 +6,15 @@
 
 #include <cstdint>
 
-#include "CryptoNoteProtocol/ICryptoNoteProtocolObserver.h"
-#include "CryptoNoteProtocol/ICryptoNoteProtocolQuery.h"
+#include "DogeroProtocol/IDogeroProtocolObserver.h"
+#include "DogeroProtocol/IDogeroProtocolQuery.h"
 
-class ICryptoNoteProtocolQueryStub: public CryptoNote::ICryptoNoteProtocolQuery {
+class IDogeroProtocolQueryStub: public Dogero::IDogeroProtocolQuery {
 public:
-  ICryptoNoteProtocolQueryStub() : peers(0), observedHeight(0), synchronized(false) {}
+  IDogeroProtocolQueryStub() : peers(0), observedHeight(0), synchronized(false) {}
 
-  virtual bool addObserver(CryptoNote::ICryptoNoteProtocolObserver* observer) override;
-  virtual bool removeObserver(CryptoNote::ICryptoNoteProtocolObserver* observer) override;
+  virtual bool addObserver(Dogero::IDogeroProtocolObserver* observer) override;
+  virtual bool removeObserver(Dogero::IDogeroProtocolObserver* observer) override;
   virtual uint32_t getObservedHeight() const override;
   virtual size_t getPeerCount() const override;
   virtual bool isSynchronized() const override;

@@ -8,15 +8,15 @@
 #include "ITransaction.h"
 #include "crypto/crypto.h"
 
-#include "CryptoNoteCore/Account.h"
-#include "CryptoNoteCore/CryptoNoteFormatUtils.h"
-#include "CryptoNoteCore/CryptoNoteTools.h"
+#include "DogeroCore/Account.h"
+#include "DogeroCore/DogeroFormatUtils.h"
+#include "DogeroCore/DogeroTools.h"
 
 #include "Transfers/TransfersContainer.h"
 
 namespace {
 
-  using namespace CryptoNote;
+  using namespace Dogero;
   using namespace Crypto;
 
   inline AccountKeys accountKeysFromKeypairs(
@@ -54,8 +54,8 @@ namespace {
 
   KeyImage generateKeyImage(const AccountKeys& keys, size_t idx, const PublicKey& txPubKey) {
     KeyImage keyImage;
-    CryptoNote::KeyPair in_ephemeral;
-    CryptoNote::generate_key_image_helper(
+    Dogero::KeyPair in_ephemeral;
+    Dogero::generate_key_image_helper(
      keys,
       txPubKey,
       idx,
@@ -101,7 +101,7 @@ namespace {
   }
 }
 
-namespace CryptoNote {
+namespace Dogero {
 
 class TestTransactionBuilder {
 public:
@@ -196,7 +196,7 @@ private:
 
 }
 
-namespace CryptoNote {
+namespace Dogero {
 inline bool operator == (const AccountKeys& a, const AccountKeys& b) { 
   return memcmp(&a, &b, sizeof(a)) == 0; 
 }

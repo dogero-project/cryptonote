@@ -18,7 +18,7 @@
 
 #include "Logging/LoggerRef.h"
 
-namespace CryptoNote {
+namespace Dogero {
 
 class BlockchainExplorer : public IBlockchainExplorer, public INodeObserver {
 public:

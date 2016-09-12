@@ -6,11 +6,11 @@
 
 #include <vector>
 
-#include "CryptoNoteCore/Account.h"
-#include "CryptoNoteCore/CryptoNoteBasic.h"
-#include "CryptoNoteCore/CryptoNoteFormatUtils.h"
-#include "CryptoNoteCore/Currency.h"
-#include "CryptoNoteCore/TransactionExtra.h"
+#include "DogeroCore/Account.h"
+#include "DogeroCore/DogeroBasic.h"
+#include "DogeroCore/DogeroFormatUtils.h"
+#include "DogeroCore/Currency.h"
+#include "DogeroCore/TransactionExtra.h"
 
 #include "crypto/crypto.h"
 
@@ -27,7 +27,7 @@ public:
 
   bool init()
   {
-    using namespace CryptoNote;
+    using namespace Dogero;
 
     Currency currency = CurrencyBuilder(m_logger).currency();
 
@@ -60,12 +60,12 @@ public:
   }
 
 protected:
-  CryptoNote::AccountBase m_miners[ring_size];
-  CryptoNote::Transaction m_miner_txs[ring_size];
+  Dogero::AccountBase m_miners[ring_size];
+  Dogero::Transaction m_miner_txs[ring_size];
   uint64_t m_source_amount;
   Logging::ConsoleLogger m_logger;
 
-  std::vector<CryptoNote::TransactionSourceEntry> m_sources;
+  std::vector<Dogero::TransactionSourceEntry> m_sources;
   Crypto::PublicKey m_public_keys[ring_size];
   const Crypto::PublicKey* m_public_key_ptrs[ring_size];
 };

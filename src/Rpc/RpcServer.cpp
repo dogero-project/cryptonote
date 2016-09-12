@@ -7,15 +7,15 @@
 #include <future>
 #include <unordered_map>
 
-// CryptoNote
+// Dogero
 #include "Common/StringTools.h"
-#include "CryptoNoteCore/CryptoNoteTools.h"
-#include "CryptoNoteCore/Core.h"
-#include "CryptoNoteCore/IBlock.h"
-#include "CryptoNoteCore/Miner.h"
-#include "CryptoNoteCore/TransactionExtra.h"
+#include "DogeroCore/DogeroTools.h"
+#include "DogeroCore/Core.h"
+#include "DogeroCore/IBlock.h"
+#include "DogeroCore/Miner.h"
+#include "DogeroCore/TransactionExtra.h"
 
-#include "CryptoNoteProtocol/ICryptoNoteProtocolQuery.h"
+#include "DogeroProtocol/IDogeroProtocolQuery.h"
 
 #include "P2p/NetNode.h"
 
@@ -28,7 +28,7 @@ using namespace Logging;
 using namespace Crypto;
 using namespace Common;
 
-namespace CryptoNote {
+namespace Dogero {
 
 namespace {
 
@@ -92,7 +92,7 @@ std::unordered_map<std::string, RpcServer::RpcHandler<RpcServer::HandlerFunction
   { "/json_rpc", { std::bind(&RpcServer::processJsonRpcRequest, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3), true } }
 };
 
-RpcServer::RpcServer(System::Dispatcher& dispatcher, Logging::ILogger& log, core& c, NodeServer& p2p, const ICryptoNoteProtocolQuery& protocolQuery) :
+RpcServer::RpcServer(System::Dispatcher& dispatcher, Logging::ILogger& log, core& c, NodeServer& p2p, const IDogeroProtocolQuery& protocolQuery) :
   HttpServer(dispatcher, log), logger(log, "RpcServer"), m_core(c), m_p2p(p2p), m_protocolQuery(protocolQuery) {
 }
 
@@ -283,7 +283,7 @@ bool RpcServer::on_get_random_outs(const COMMAND_RPC_GET_RANDOM_OUTPUTS_FOR_AMOU
 
 bool RpcServer::onGetPoolChanges(const COMMAND_RPC_GET_POOL_CHANGES::request& req, COMMAND_RPC_GET_POOL_CHANGES::response& rsp) {
   rsp.status = CORE_RPC_STATUS_OK;
-  std::vector<CryptoNote::Transaction> addedTransactions;
+  std::vector<Dogero::Transaction> addedTransactions;
   rsp.isTailBlockActual = m_core.getPoolChanges(req.tailBlockId, req.knownTxsIds, addedTransactions, rsp.deletedTxsIds);
   for (auto& tx : addedTransactions) {
     BinaryArray txBlob;
@@ -494,7 +494,7 @@ bool RpcServer::on_getblocktemplate(const COMMAND_RPC_GETBLOCKTEMPLATE::request&
   }
 
   Block b = boost::value_initialized<Block>();
-  CryptoNote::BinaryArray blob_reserve;
+  Dogero::BinaryArray blob_reserve;
   blob_reserve.resize(req.reserve_size, 0);
   if (!m_core.get_block_template(b, acc, res.difficulty, res.height, blob_reserve)) {
     logger(ERROR) << "Failed to create block template";
@@ -502,7 +502,7 @@ bool RpcServer::on_getblocktemplate(const COMMAND_RPC_GETBLOCKTEMPLATE::request&
   }
 
   BinaryArray block_blob = toBinaryArray(b);
-  PublicKey tx_pub_key = CryptoNote::getTransactionPublicKeyFromExtra(b.baseTransaction.extra);
+  PublicKey tx_pub_key = Dogero::getTransactionPublicKeyFromExtra(b.baseTransaction.extra);
   if (tx_pub_key == NULL_PUBLIC_KEY) {
     logger(ERROR) << "Failed to find tx pub key in coinbase extra";
     throw JsonRpc::JsonRpcError{ CORE_RPC_ERROR_CODE_INTERNAL_ERROR, "Internal error: failed to find tx pub key in coinbase extra" };

@@ -2,9 +2,9 @@
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#include "CryptoNoteCore/BlockchainMessages.h"
+#include "DogeroCore/BlockchainMessages.h"
 
-namespace CryptoNote {
+namespace Dogero {
 
 NewBlockMessage::NewBlockMessage(const Crypto::Hash& hash) : blockHash(hash) {}
 

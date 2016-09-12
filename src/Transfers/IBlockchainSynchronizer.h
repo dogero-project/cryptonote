@@ -10,13 +10,13 @@
 #include <unordered_set>
 
 #include "crypto/crypto.h"
-#include "CryptoNoteCore/CryptoNoteBasic.h"
+#include "DogeroCore/DogeroBasic.h"
 
 #include "IObservable.h"
 #include "IStreamSerializable.h"
 #include "ITransfersSynchronizer.h"
 
-namespace CryptoNote {
+namespace Dogero {
 
 struct CompleteBlock;
 

@@ -7,7 +7,7 @@
 #include <chrono>
 #include "NetNodeConfig.h"
 
-namespace CryptoNote {
+namespace Dogero {
 
 class P2pNodeConfig : public NetNodeConfig {
 public:

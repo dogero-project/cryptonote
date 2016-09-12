@@ -7,9 +7,9 @@
 #include <cstdint>
 #include <memory>
 
-#include <CryptoNote.h>
+#include <Dogero.h>
 
-namespace CryptoNote {
+namespace Dogero {
 
 struct P2pMessage {
   uint32_t type;

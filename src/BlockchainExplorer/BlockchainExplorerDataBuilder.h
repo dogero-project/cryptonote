@@ -7,16 +7,16 @@
 #include <vector>
 #include <array>
 
-#include "CryptoNoteProtocol/ICryptoNoteProtocolQuery.h"
-#include "CryptoNoteCore/ICore.h"
+#include "DogeroProtocol/IDogeroProtocolQuery.h"
+#include "DogeroCore/ICore.h"
 #include "BlockchainExplorerData.h"
 
-namespace CryptoNote {
+namespace Dogero {
 
 class BlockchainExplorerDataBuilder
 {
 public:
-  BlockchainExplorerDataBuilder(CryptoNote::ICore& core, CryptoNote::ICryptoNoteProtocolQuery& protocol);
+  BlockchainExplorerDataBuilder(Dogero::ICore& core, Dogero::IDogeroProtocolQuery& protocol);
 
   BlockchainExplorerDataBuilder(const BlockchainExplorerDataBuilder&) = delete;
   BlockchainExplorerDataBuilder(BlockchainExplorerDataBuilder&&) = delete;
@@ -34,7 +34,7 @@ private:
   bool fillTxExtra(const std::vector<uint8_t>& rawExtra, TransactionExtraDetails& extraDetails);
   size_t median(std::vector<size_t>& v);
 
-  CryptoNote::ICore& core;
-  CryptoNote::ICryptoNoteProtocolQuery& protocol;
+  Dogero::ICore& core;
+  Dogero::IDogeroProtocolQuery& protocol;
 };
 }

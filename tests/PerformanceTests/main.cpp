@@ -8,7 +8,7 @@
 // tests
 #include "ConstructTransaction.h"
 #include "CheckRingSignature.h"
-#include "CryptoNoteSlowHash.h"
+#include "DogeroSlowHash.h"
 #include "DerivePublicKey.h"
 #include "DeriveSecretKey.h"
 #include "GenerateKeyDerivation.h"

@@ -5,12 +5,12 @@
 #include "BlockchainIndices.h"
 
 #include "Common/StringTools.h"
-#include "CryptoNoteCore/CryptoNoteTools.h"
-#include "CryptoNoteCore/CryptoNoteFormatUtils.h"
+#include "DogeroCore/DogeroTools.h"
+#include "DogeroCore/DogeroFormatUtils.h"
 #include "BlockchainExplorer/BlockchainExplorerDataBuilder.h"
-#include "CryptoNoteBasicImpl.h"
+#include "DogeroBasicImpl.h"
 
-namespace CryptoNote {
+namespace Dogero {
 
 bool PaymentIdIndex::add(const Transaction& transaction) {
   Crypto::Hash paymentId;

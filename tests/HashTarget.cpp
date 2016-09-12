@@ -7,10 +7,10 @@
 #include <cstring>
 #include <limits>
 #include "crypto/hash.h"
-#include "CryptoNoteCore/Difficulty.h"
+#include "DogeroCore/Difficulty.h"
 
 using namespace std;
-using CryptoNote::check_hash;
+using Dogero::check_hash;
 
 int main(int argc, char *argv[]) {
   Crypto::Hash h;

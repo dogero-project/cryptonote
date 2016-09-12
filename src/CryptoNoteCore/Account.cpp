@@ -3,9 +3,9 @@
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #include "Account.h"
-#include "CryptoNoteSerialization.h"
+#include "DogeroSerialization.h"
 
-namespace CryptoNote {
+namespace Dogero {
 //-----------------------------------------------------------------
 AccountBase::AccountBase() {
   setNull();

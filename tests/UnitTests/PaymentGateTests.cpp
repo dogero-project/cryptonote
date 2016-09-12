@@ -17,13 +17,13 @@
 #include "TestBlockchainGenerator.h"
 
 using namespace PaymentService;
-using namespace CryptoNote;
+using namespace Dogero;
 
 class PaymentGateTest : public testing::Test {
 public:
 
   PaymentGateTest() : 
-    currency(CryptoNote::CurrencyBuilder(logger).currency()), 
+    currency(Dogero::CurrencyBuilder(logger).currency()),
     generator(currency),
     nodeStub(generator) 
   {}
@@ -46,12 +46,12 @@ public:
 
 protected:  
   Logging::ConsoleLogger logger;
-  CryptoNote::Currency currency;
+  Dogero::Currency currency;
   TestBlockchainGenerator generator;
   INodeTrivialRefreshStub nodeStub;
   System::Dispatcher dispatcher;
 
-  std::unique_ptr<CryptoNote::IWallet> wallet;
+  std::unique_ptr<Dogero::IWallet> wallet;
 };
 
 

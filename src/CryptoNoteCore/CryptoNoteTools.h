@@ -10,9 +10,9 @@
 #include "Common/VectorOutputStream.h"
 #include "Serialization/BinaryOutputStreamSerializer.h"
 #include "Serialization/BinaryInputStreamSerializer.h"
-#include "CryptoNoteSerialization.h"
+#include "DogeroSerialization.h"
 
-namespace CryptoNote {
+namespace Dogero {
 
 void getBinaryArrayHash(const BinaryArray& binaryArray, Crypto::Hash& hash);
 Crypto::Hash getBinaryArrayHash(const BinaryArray& binaryArray);

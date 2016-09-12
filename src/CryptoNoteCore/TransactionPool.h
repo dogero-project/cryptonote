@@ -21,24 +21,24 @@
 #include "Common/ObserverManager.h"
 #include "crypto/hash.h"
 
-#include "CryptoNoteCore/CryptoNoteBasic.h"
-#include "CryptoNoteCore/CryptoNoteBasicImpl.h"
-#include "CryptoNoteCore/Currency.h"
-#include "CryptoNoteCore/ITimeProvider.h"
-#include "CryptoNoteCore/ITransactionValidator.h"
-#include "CryptoNoteCore/ITxPoolObserver.h"
-#include "CryptoNoteCore/VerificationContext.h"
-#include "CryptoNoteCore/BlockchainIndices.h"
+#include "DogeroCore/DogeroBasic.h"
+#include "DogeroCore/DogeroBasicImpl.h"
+#include "DogeroCore/Currency.h"
+#include "DogeroCore/ITimeProvider.h"
+#include "DogeroCore/ITransactionValidator.h"
+#include "DogeroCore/ITxPoolObserver.h"
+#include "DogeroCore/VerificationContext.h"
+#include "DogeroCore/BlockchainIndices.h"
 
 #include <Logging/LoggerRef.h>
 
-namespace CryptoNote {
+namespace Dogero {
 
   class ISerializer;
 
   class OnceInTimeInterval {
   public:
-    OnceInTimeInterval(unsigned interval, CryptoNote::ITimeProvider& timeProvider)
+    OnceInTimeInterval(unsigned interval, Dogero::ITimeProvider& timeProvider)
       : m_interval(interval), m_timeProvider(timeProvider) {
       m_lastWorkedTime = 0;
     }
@@ -59,10 +59,10 @@ namespace CryptoNote {
   private:
     time_t m_lastWorkedTime;
     unsigned m_interval;
-    CryptoNote::ITimeProvider& m_timeProvider;
+    Dogero::ITimeProvider& m_timeProvider;
   };
 
-  using CryptoNote::BlockInfo;
+  using Dogero::BlockInfo;
   using namespace boost::multi_index;
 
   /************************************************************************/
@@ -71,9 +71,9 @@ namespace CryptoNote {
   class tx_memory_pool: boost::noncopyable {
   public:
     tx_memory_pool(
-      const CryptoNote::Currency& currency, 
-      CryptoNote::ITransactionValidator& validator,
-      CryptoNote::ITimeProvider& timeProvider,
+      const Dogero::Currency& currency,
+      Dogero::ITransactionValidator& validator,
+      Dogero::ITimeProvider& timeProvider,
       Logging::ILogger& log);
 
     bool addObserver(ITxPoolObserver* observer);
@@ -184,15 +184,15 @@ namespace CryptoNote {
     void buildIndices();
 
     Tools::ObserverManager<ITxPoolObserver> m_observerManager;
-    const CryptoNote::Currency& m_currency;
+    const Dogero::Currency& m_currency;
     OnceInTimeInterval m_txCheckInterval;
     mutable std::recursive_mutex m_transactions_lock;
     key_images_container m_spent_key_images;
     GlobalOutputsContainer m_spentOutputs;
 
     std::string m_config_folder;
-    CryptoNote::ITransactionValidator& m_validator;
-    CryptoNote::ITimeProvider& m_timeProvider;
+    Dogero::ITransactionValidator& m_validator;
+    Dogero::ITimeProvider& m_timeProvider;
 
     tx_container_t m_transactions;  
     tx_container_t::nth_index<1>::type& m_fee_index;

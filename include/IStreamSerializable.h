@@ -6,7 +6,7 @@
 
 #include <sstream>
 
-namespace CryptoNote {
+namespace Dogero {
 
 class IStreamSerializable {
 public:

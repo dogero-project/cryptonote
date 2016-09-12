@@ -4,12 +4,12 @@
 
 #include "WalletUtils.h"
 
-#include "CryptoNote.h"
+#include "Dogero.h"
 
-namespace CryptoNote {
+namespace Dogero {
 
-bool validateAddress(const std::string& address, const CryptoNote::Currency& currency) {
-  CryptoNote::AccountPublicAddress ignore;
+bool validateAddress(const std::string& address, const Dogero::Currency& currency) {
+  Dogero::AccountPublicAddress ignore;
   return currency.parseAccountAddressString(address, ignore);
 }
 

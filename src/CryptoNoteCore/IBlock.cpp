@@ -4,7 +4,7 @@
 
 #include "IBlock.h"
 
-namespace CryptoNote {
+namespace Dogero {
 IBlock::~IBlock() {
 }
 }

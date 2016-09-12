@@ -8,7 +8,7 @@
 #include <string>
 #include <map>
 
-namespace CryptoNote {
+namespace Dogero {
 
   class HttpResponse {
   public:
@@ -41,4 +41,4 @@ namespace CryptoNote {
     return resp.printHttpResponse(os);
   }
 
-} //namespace CryptoNote
+} //namespace Dogero

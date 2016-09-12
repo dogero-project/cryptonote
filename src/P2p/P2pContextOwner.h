@@ -7,7 +7,7 @@
 #include <list>
 #include <memory>
 
-namespace CryptoNote {
+namespace Dogero {
 
 class P2pContext;
 

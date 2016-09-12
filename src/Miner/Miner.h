@@ -11,12 +11,12 @@
 #include <System/Event.h>
 #include <System/RemoteContext.h>
 
-#include "CryptoNote.h"
-#include "CryptoNoteCore/Difficulty.h"
+#include "Dogero.h"
+#include "DogeroCore/Difficulty.h"
 
 #include "Logging/LoggerRef.h"
 
-namespace CryptoNote {
+namespace Dogero {
 
 struct BlockMiningParameters {
   Block blockTemplate;
@@ -51,4 +51,4 @@ private:
   bool setStateBlockFound();
 };
 
-} //namespace CryptoNote
+} //namespace Dogero

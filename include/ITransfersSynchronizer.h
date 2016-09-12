@@ -11,7 +11,7 @@
 #include "ITransfersContainer.h"
 #include "IStreamSerializable.h"
 
-namespace CryptoNote {
+namespace Dogero {
 
 struct SynchronizationStart {
   uint64_t timestamp;

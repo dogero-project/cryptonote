@@ -10,7 +10,7 @@
 
 #include "IWalletLegacy.h"
 
-namespace CryptoNote {
+namespace Dogero {
 class ISerializer;
 
 struct UnconfirmedTransferDetails;

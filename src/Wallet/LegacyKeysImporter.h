@@ -7,8 +7,8 @@
 #include <string>
 #include <ostream>
 
-namespace CryptoNote {
+namespace Dogero {
 
 void importLegacyKeys(const std::string& legacyKeysFilename, const std::string& password, std::ostream& destination);
 
-} //namespace CryptoNote
+} //namespace Dogero

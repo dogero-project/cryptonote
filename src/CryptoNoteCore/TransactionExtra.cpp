@@ -7,14 +7,14 @@
 #include "Common/MemoryInputStream.h"
 #include "Common/StreamTools.h"
 #include "Common/StringTools.h"
-#include "CryptoNoteTools.h"
+#include "DogeroTools.h"
 #include "Serialization/BinaryOutputStreamSerializer.h"
 #include "Serialization/BinaryInputStreamSerializer.h"
 
 using namespace Crypto;
 using namespace Common;
 
-namespace CryptoNote {
+namespace Dogero {
 
 bool parseTransactionExtra(const std::vector<uint8_t> &transactionExtra, std::vector<TransactionExtraField> &transactionExtraFields) {
   transactionExtraFields.clear();
@@ -174,9 +174,9 @@ bool createTxExtraWithPaymentId(const std::string& paymentIdString, std::vector<
   }
 
   std::vector<uint8_t> extraNonce;
-  CryptoNote::setPaymentIdToTransactionExtraNonce(extraNonce, paymentIdBin);
+  Dogero::setPaymentIdToTransactionExtraNonce(extraNonce, paymentIdBin);
 
-  if (!CryptoNote::addExtraNonceToTransactionExtra(extra, extraNonce)) {
+  if (!Dogero::addExtraNonceToTransactionExtra(extra, extraNonce)) {
     return false;
   }
 

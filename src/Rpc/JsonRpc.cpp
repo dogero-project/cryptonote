@@ -5,7 +5,7 @@
 #include "JsonRpc.h"
 #include "Rpc/HttpClient.h"
 
-namespace CryptoNote {
+namespace Dogero {
 
 namespace JsonRpc {
 

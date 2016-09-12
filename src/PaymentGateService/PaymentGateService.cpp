@@ -11,9 +11,9 @@
 #include "Logging/LoggerRef.h"
 #include "PaymentGate/PaymentServiceJsonRpcServer.h"
 
-#include "CryptoNoteCore/CoreConfig.h"
-#include "CryptoNoteCore/Core.h"
-#include "CryptoNoteProtocol/CryptoNoteProtocolHandler.h"
+#include "DogeroCore/CoreConfig.h"
+#include "DogeroCore/Core.h"
+#include "DogeroProtocol/DogeroProtocolHandler.h"
 #include "P2p/NetNode.h"
 #include "PaymentGate/WalletFactory.h"
 #include <System/Context.h>
@@ -79,7 +79,7 @@ WalletConfiguration PaymentGateService::getWalletConfig() const {
   };
 }
 
-const CryptoNote::Currency PaymentGateService::getCurrency() {
+const Dogero::Currency PaymentGateService::getCurrency() {
   return currencyBuilder.currency();
 }
 
@@ -132,11 +132,11 @@ void PaymentGateService::runInProcess(Logging::LoggerRef& log) {
 
   log(Logging::INFO) << "Starting Payment Gate with local node";
 
-  CryptoNote::Currency currency = currencyBuilder.currency();
-  CryptoNote::core core(currency, NULL, logger);
+  Dogero::Currency currency = currencyBuilder.currency();
+  Dogero::core core(currency, NULL, logger);
 
-  CryptoNote::CryptoNoteProtocolHandler protocol(currency, *dispatcher, core, NULL, logger);
-  CryptoNote::NodeServer p2pNode(*dispatcher, protocol, logger);
+  Dogero::DogeroProtocolHandler protocol(currency, *dispatcher, core, NULL, logger);
+  Dogero::NodeServer p2pNode(*dispatcher, protocol, logger);
 
   protocol.set_p2p_endpoint(&p2pNode);
   core.set_cryptonote_protocol(&protocol);
@@ -147,13 +147,13 @@ void PaymentGateService::runInProcess(Logging::LoggerRef& log) {
   }
 
   log(Logging::INFO) << "initializing core";
-  CryptoNote::MinerConfig emptyMiner;
+  Dogero::MinerConfig emptyMiner;
   core.init(config.coreConfig, emptyMiner, true);
 
   std::promise<std::error_code> initPromise;
   auto initFuture = initPromise.get_future();
 
-  std::unique_ptr<CryptoNote::INode> node(new CryptoNote::InProcessNode(core, protocol));
+  std::unique_ptr<Dogero::INode> node(new Dogero::InProcessNode(core, protocol));
 
   node->init([&initPromise, &log](std::error_code ec) {
     if (ec) {
@@ -192,9 +192,9 @@ void PaymentGateService::runInProcess(Logging::LoggerRef& log) {
 
 void PaymentGateService::runRpcProxy(Logging::LoggerRef& log) {
   log(Logging::INFO) << "Starting Payment Gate with remote node";
-  CryptoNote::Currency currency = currencyBuilder.currency();
+  Dogero::Currency currency = currencyBuilder.currency();
   
-  std::unique_ptr<CryptoNote::INode> node(
+  std::unique_ptr<Dogero::INode> node(
     PaymentService::NodeFactory::createNode(
       config.remoteNodeConfig.daemonHost, 
       config.remoteNodeConfig.daemonPort));
@@ -202,13 +202,13 @@ void PaymentGateService::runRpcProxy(Logging::LoggerRef& log) {
   runWalletService(currency, *node);
 }
 
-void PaymentGateService::runWalletService(const CryptoNote::Currency& currency, CryptoNote::INode& node) {
+void PaymentGateService::runWalletService(const Dogero::Currency& currency, Dogero::INode& node) {
   PaymentService::WalletConfiguration walletConfiguration{
     config.gateConfiguration.containerFile,
     config.gateConfiguration.containerPassword
   };
 
-  std::unique_ptr<CryptoNote::IWallet> wallet (WalletFactory::createWallet(currency, node, *dispatcher));
+  std::unique_ptr<Dogero::IWallet> wallet (WalletFactory::createWallet(currency, node, *dispatcher));
 
   service = new PaymentService::WalletService(currency, *dispatcher, node, *wallet, walletConfiguration, logger);
   std::unique_ptr<PaymentService::WalletService> serviceGuard(service);

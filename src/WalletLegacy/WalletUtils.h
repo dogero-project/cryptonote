@@ -11,9 +11,9 @@
 #include "IWalletLegacy.h"
 #include "Wallet/WalletErrors.h"
 
-namespace CryptoNote {
+namespace Dogero {
 
-inline void throwIf(bool expr, CryptoNote::error::WalletErrorCodes ec)
+inline void throwIf(bool expr, Dogero::error::WalletErrorCodes ec)
 {
   if (expr)
     throw std::system_error(make_error_code(ec));
@@ -32,4 +32,4 @@ inline std::ostream& operator <<(std::ostream& ostr, const Crypto::Hash& hash) {
   return ostr;
 }
 
-} //namespace CryptoNote
+} //namespace Dogero
